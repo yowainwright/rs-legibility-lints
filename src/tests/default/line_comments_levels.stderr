@@ -1,0 +1,15 @@
+error: LEG041 prefer-line-comments: use line comments for ordinary prose
+  --> $DIR/line_comments_levels.rs:5:5
+   |
+LL |     /* Explain this function. */
+   |     ^
+   |
+   = help: replace the block comment with `//` comments
+note: the lint level is defined here
+  --> $DIR/line_comments_levels.rs:3:8
+   |
+LL | #[deny(prefer_line_comments)]
+   |        ^^^^^^^^^^^^^^^^^^^^
+
+error: aborting due to 1 previous error
+

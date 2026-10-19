@@ -1,0 +1,15 @@
+error: LEG076 no-loop-append-comprehension: build this vector with `map(...).collect()`
+  --> $DIR/loop_collect_levels.rs:4:5
+   |
+LL |     for value in values {
+   |     ^
+   |
+   = help: preserve iteration order and ownership when replacing the push loop
+note: the lint level is defined here
+  --> $DIR/loop_collect_levels.rs:1:8
+   |
+LL | #[deny(no_loop_append_comprehension)]
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: aborting due to 1 previous error
+

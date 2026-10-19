@@ -1,0 +1,15 @@
+error: LEG059 no-small-collection-conversion: use the small array directly for this lookup
+  --> $DIR/small_collections_levels.rs:7:5
+   |
+LL |     HashSet::from([1, 2]).contains(&value)
+   |     ^
+   |
+   = help: use array `.contains()` while preserving evaluation order and borrowing
+note: the lint level is defined here
+  --> $DIR/small_collections_levels.rs:5:8
+   |
+LL | #[deny(no_small_collection_conversion)]
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: aborting due to 1 previous error
+

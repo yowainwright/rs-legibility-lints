@@ -1,0 +1,83 @@
+warning: LEG012 no-computed-values: returned calculation exceeds one arithmetic operator
+  --> $DIR/computed_values.rs:2:12
+   |
+LL |     return subtotal + tax + shipping;
+   |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named intermediate value while preserving evaluation order and ownership
+   = note: `#[warn(no_computed_values)]` on by default
+
+warning: LEG012 no-computed-values: returned calculation exceeds one arithmetic operator
+  --> $DIR/computed_values.rs:6:5
+   |
+LL |     subtotal + tax + shipping
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named intermediate value while preserving evaluation order and ownership
+
+warning: LEG012 no-computed-values: returned calculation exceeds one arithmetic operator
+  --> $DIR/computed_values.rs:10:14
+   |
+LL |     return { subtotal + tax + shipping };
+   |              ^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named intermediate value while preserving evaluation order and ownership
+
+warning: LEG012 no-computed-values: returned calculation exceeds one arithmetic operator
+  --> $DIR/computed_values.rs:14:5
+   |
+LL |     left * (middle - right)
+   |     ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named intermediate value while preserving evaluation order and ownership
+
+warning: LEG012 no-computed-values: returned calculation exceeds one arithmetic operator
+  --> $DIR/computed_values.rs:18:5
+   |
+LL |     left / (middle % right)
+   |     ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named intermediate value while preserving evaluation order and ownership
+
+warning: LEG012 no-computed-values: returned calculation exceeds one arithmetic operator
+  --> $DIR/computed_values.rs:23:9
+   |
+LL |         subtotal + tax + shipping
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named intermediate value while preserving evaluation order and ownership
+
+warning: LEG012 no-computed-values: returned calculation exceeds one arithmetic operator
+  --> $DIR/computed_values.rs:31:14
+   |
+LL |         0 => subtotal + tax + shipping,
+   |              ^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named intermediate value while preserving evaluation order and ownership
+
+warning: LEG012 no-computed-values: returned calculation exceeds one arithmetic operator
+  --> $DIR/computed_values.rs:37:5
+   |
+LL |     (subtotal + tax) as u32 + shipping
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named intermediate value while preserving evaluation order and ownership
+
+warning: LEG012 no-computed-values: returned calculation exceeds one arithmetic operator
+  --> $DIR/computed_values.rs:41:24
+   |
+LL |     let calculate = || subtotal + tax + shipping;
+   |                        ^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named intermediate value while preserving evaluation order and ownership
+
+warning: LEG012 no-computed-values: returned calculation exceeds one arithmetic operator
+  --> $DIR/computed_values.rs:46:5
+   |
+LL |     subtotal + tax + shipping
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named intermediate value while preserving evaluation order and ownership
+
+warning: 10 warnings emitted
+

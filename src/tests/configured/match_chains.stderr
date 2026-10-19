@@ -1,0 +1,19 @@
+warning: LEG034 prefer-switch-over-long-if-chain: use `match` for this repeated comparison chain
+  --> $DIR/match_chains.rs:6:5
+   |
+LL |     if value == 1 {
+   |     ^
+   |
+   = help: match on the same value while preserving branch order and behavior
+   = note: `#[warn(prefer_switch_over_long_if_chain)]` on by default
+
+warning: LEG034 prefer-switch-over-long-if-chain: use `match` for this repeated comparison chain
+  --> $DIR/match_chains.rs:12:5
+   |
+LL |     if value == true {
+   |     ^
+   |
+   = help: match on the same value while preserving branch order and behavior
+
+warning: 2 warnings emitted
+

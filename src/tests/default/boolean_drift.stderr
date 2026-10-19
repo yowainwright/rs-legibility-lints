@@ -1,0 +1,59 @@
+warning: LEG079 no-boolean-parameter-name-drift: review `is_ready` against its inverted expression
+  --> $DIR/boolean_drift.rs:2:9
+   |
+LL |     let is_ready = status != "ready";
+   |         ^^^^^^^^
+   |
+   = help: review the name and expression together; preserve intended behavior when updating uses
+   = note: `#[warn(no_boolean_parameter_name_drift)]` on by default
+
+warning: LEG079 no-boolean-parameter-name-drift: review `is_ready` against its inverted expression
+  --> $DIR/boolean_drift.rs:17:9
+   |
+LL |     let is_ready = !ready;
+   |         ^^^^^^^^
+   |
+   = help: review the name and expression together; preserve intended behavior when updating uses
+
+warning: LEG079 no-boolean-parameter-name-drift: review `is_ready` against its inverted expression
+  --> $DIR/boolean_drift.rs:22:9
+   |
+LL |     let is_ready = "ready" != status;
+   |         ^^^^^^^^
+   |
+   = help: review the name and expression together; preserve intended behavior when updating uses
+
+warning: LEG079 no-boolean-parameter-name-drift: review `is_ready` against its inverted expression
+  --> $DIR/boolean_drift.rs:27:9
+   |
+LL |     let is_ready = status != "ready";
+   |         ^^^^^^^^
+   |
+   = help: review the name and expression together; preserve intended behavior when updating uses
+
+warning: LEG079 no-boolean-parameter-name-drift: review `is_ready` against its inverted expression
+  --> $DIR/boolean_drift.rs:33:9
+   |
+LL |     let is_ready: Flag = status != "READY";
+   |         ^^^^^^^^
+   |
+   = help: review the name and expression together; preserve intended behavior when updating uses
+
+warning: LEG079 no-boolean-parameter-name-drift: review `is_ready` against its inverted expression
+  --> $DIR/boolean_drift.rs:38:9
+   |
+LL |     let is_ready = !ready;
+   |         ^^^^^^^^
+   |
+   = help: review the name and expression together; preserve intended behavior when updating uses
+
+warning: LEG079 no-boolean-parameter-name-drift: review `has_read_access` against its inverted expression
+  --> $DIR/boolean_drift.rs:43:9
+   |
+LL |     let has_read_access = status != r#"read_access"#;
+   |         ^^^^^^^^^^^^^^^
+   |
+   = help: review the name and expression together; preserve intended behavior when updating uses
+
+warning: 7 warnings emitted
+

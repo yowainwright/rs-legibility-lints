@@ -1,0 +1,48 @@
+warning: LEG041 prefer-line-comments: use line comments for ordinary prose
+  --> $DIR/line_comments.rs:1:1
+   |
+LL | /* Preserve provider retry order. */
+   | ^
+   |
+   = help: replace the block comment with `//` comments
+   = note: `#[warn(prefer_line_comments)]` on by default
+
+warning: LEG041 prefer-line-comments: use line comments for ordinary prose
+  --> $DIR/line_comments.rs:3:5
+   |
+LL |     /*
+   |     ^
+   |
+   = help: replace the block comment with `//` comments
+
+warning: LEG041 prefer-line-comments: use line comments for ordinary prose
+  --> $DIR/line_comments.rs:7:9
+   |
+LL |         /* Explain this branch. */
+   |         ^
+   |
+   = help: replace the block comment with `//` comments
+
+warning: LEG041 prefer-line-comments: use line comments for ordinary prose
+  --> $DIR/line_comments.rs:15:9
+   |
+LL |         /* Preserve this explanation. */
+   |         ^
+   |
+   = help: replace the block comment with `//` comments
+note: the lint level is defined here
+  --> $DIR/line_comments.rs:13:12
+   |
+LL |     #[warn(prefer_line_comments)]
+   |            ^^^^^^^^^^^^^^^^^^^^
+
+warning: LEG041 prefer-line-comments: use line comments for ordinary prose
+  --> $DIR/auxiliary/line_comments.rs:1:1
+   |
+LL | /* Explain this module. */
+   | ^
+   |
+   = help: replace the block comment with `//` comments
+
+warning: 5 warnings emitted
+

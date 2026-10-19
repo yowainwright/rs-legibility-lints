@@ -1,0 +1,99 @@
+warning: LEG008 no-trivial-wrapper-functions: function only forwards its parameters
+  --> $DIR/wrappers.rs:1:4
+   |
+LL | fn clean_name(name: &str) -> &str {
+   |    ^^^^^^^^^^
+   |
+   = help: consider calling the underlying function or method directly
+   = note: `#[warn(no_trivial_wrapper_functions)]` on by default
+
+warning: LEG008 no-trivial-wrapper-functions: function only forwards its parameters
+  --> $DIR/wrappers.rs:5:4
+   |
+LL | fn returned(value: u8) -> u8 {
+   |    ^^^^^^^^
+   |
+   = help: consider calling the underlying function or method directly
+
+warning: LEG008 no-trivial-wrapper-functions: function only forwards its parameters
+  --> $DIR/wrappers.rs:9:4
+   |
+LL | fn tail_return(value: u8) -> u8 {
+   |    ^^^^^^^^^^^
+   |
+   = help: consider calling the underlying function or method directly
+
+warning: LEG008 no-trivial-wrapper-functions: function only forwards its parameters
+  --> $DIR/wrappers.rs:13:4
+   |
+LL | fn multiple(left: u8, right: u8) -> u8 {
+   |    ^^^^^^^^
+   |
+   = help: consider calling the underlying function or method directly
+
+warning: LEG008 no-trivial-wrapper-functions: function only forwards its parameters
+  --> $DIR/wrappers.rs:17:4
+   |
+LL | fn unit_tail(values: &mut Vec<u8>) {
+   |    ^^^^^^^^^
+   |
+   = help: consider calling the underlying function or method directly
+
+warning: LEG008 no-trivial-wrapper-functions: function only forwards its parameters
+  --> $DIR/wrappers.rs:21:4
+   |
+LL | fn unit_statement(values: &mut Vec<u8>) {
+   |    ^^^^^^^^^^^^^^
+   |
+   = help: consider calling the underlying function or method directly
+
+warning: LEG008 no-trivial-wrapper-functions: function only forwards its parameters
+  --> $DIR/wrappers.rs:25:4
+   |
+LL | fn qualified(value: u8) -> u8 {
+   |    ^^^^^^^^^
+   |
+   = help: consider calling the underlying function or method directly
+
+warning: LEG008 no-trivial-wrapper-functions: function only forwards its parameters
+  --> $DIR/wrappers.rs:29:4
+   |
+LL | fn associated_call(name: &str) -> &str {
+   |    ^^^^^^^^^^^^^^^
+   |
+   = help: consider calling the underlying function or method directly
+
+warning: LEG008 no-trivial-wrapper-functions: function only forwards its parameters
+  --> $DIR/wrappers.rs:35:4
+   |
+LL | fn alias(value: u8) -> u8 {
+   |    ^^^^^
+   |
+   = help: consider calling the underlying function or method directly
+
+warning: LEG008 no-trivial-wrapper-functions: function only forwards its parameters
+  --> $DIR/wrappers.rs:39:4
+   |
+LL | fn mutable(mut value: u8) -> u8 {
+   |    ^^^^^^^
+   |
+   = help: consider calling the underlying function or method directly
+
+warning: LEG008 no-trivial-wrapper-functions: function only forwards its parameters
+  --> $DIR/wrappers.rs:46:8
+   |
+LL |     fn forwarded(&self, value: u8) -> u8 {
+   |        ^^^^^^^^^
+   |
+   = help: consider calling the underlying function or method directly
+
+warning: LEG008 no-trivial-wrapper-functions: function only forwards its parameters
+  --> $DIR/wrappers.rs:50:8
+   |
+LL |     fn associated(value: u8) -> u8 {
+   |        ^^^^^^^^^^
+   |
+   = help: consider calling the underlying function or method directly
+
+warning: 12 warnings emitted
+

@@ -1,0 +1,91 @@
+warning: LEG050 prefer-lowercase-error-strings: start error messages with a lowercase word
+  --> $DIR/error_strings.rs:7:26
+   |
+LL |     let _ = Error::other("Invalid user.");
+   |                          ^^^^^^^^^^^^^^^
+   |
+   = help: preserve identifiers and acronyms when editing the message
+   = note: `#[warn(prefer_lowercase_error_strings)]` on by default
+
+warning: LEG050 prefer-lowercase-error-strings: omit trailing `.`, `!`, or `:` from error messages
+  --> $DIR/error_strings.rs:8:26
+   |
+LL |     let _ = Error::other("invalid user.");
+   |                          ^^^^^^^^^^^^^^^
+   |
+   = help: preserve identifiers and acronyms when editing the message
+
+warning: LEG050 prefer-lowercase-error-strings: omit trailing `.`, `!`, or `:` from error messages
+  --> $DIR/error_strings.rs:9:26
+   |
+LL |     let _ = Error::other("invalid user!");
+   |                          ^^^^^^^^^^^^^^^
+   |
+   = help: preserve identifiers and acronyms when editing the message
+
+warning: LEG050 prefer-lowercase-error-strings: omit trailing `.`, `!`, or `:` from error messages
+  --> $DIR/error_strings.rs:10:26
+   |
+LL |     let _ = Error::other("invalid user:");
+   |                          ^^^^^^^^^^^^^^^
+   |
+   = help: preserve identifiers and acronyms when editing the message
+
+warning: LEG050 prefer-lowercase-error-strings: start error messages with a lowercase word
+  --> $DIR/error_strings.rs:11:49
+   |
+LL |     let _ = Error::new(ErrorKind::InvalidInput, "Invalid request");
+   |                                                 ^^^^^^^^^^^^^^^^^
+   |
+   = help: preserve identifiers and acronyms when editing the message
+
+warning: LEG050 prefer-lowercase-error-strings: start error messages with a lowercase word
+  --> $DIR/error_strings.rs:12:28
+   |
+LL |     let _ = IoError::other("Bad request");
+   |                            ^^^^^^^^^^^^^
+   |
+   = help: preserve identifiers and acronyms when editing the message
+
+warning: LEG050 prefer-lowercase-error-strings: start error messages with a lowercase word
+  --> $DIR/error_strings.rs:13:50
+   |
+LL |     let _ = AliasError::new(ErrorKind::NotFound, r#"Missing user."#);
+   |                                                  ^^^^^^^^^^^^^^^^^^
+   |
+   = help: preserve identifiers and acronyms when editing the message
+
+warning: LEG050 prefer-lowercase-error-strings: start error messages with a lowercase word
+  --> $DIR/error_strings.rs:14:26
+   |
+LL |     let _ = Error::other("/u{00c9}chec");
+   |                          ^^^^^^^^^^^^^^
+   |
+   = help: preserve identifiers and acronyms when editing the message
+
+warning: LEG050 prefer-lowercase-error-strings: omit trailing `.`, `!`, or `:` from error messages
+  --> $DIR/error_strings.rs:15:26
+   |
+LL |     let _ = Error::other("HTTP request.");
+   |                          ^^^^^^^^^^^^^^^
+   |
+   = help: preserve identifiers and acronyms when editing the message
+
+warning: LEG050 prefer-lowercase-error-strings: omit trailing `.`, `!`, or `:` from error messages
+  --> $DIR/error_strings.rs:16:26
+   |
+LL |     let _ = Error::other("TLSConfig invalid.");
+   |                          ^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: preserve identifiers and acronyms when editing the message
+
+warning: LEG050 prefer-lowercase-error-strings: start error messages with a lowercase word
+  --> $DIR/error_strings.rs:17:35
+   |
+LL |     let _ = std::io::Error::other(" Invalid user");
+   |                                   ^^^^^^^^^^^^^^^
+   |
+   = help: preserve identifiers and acronyms when editing the message
+
+warning: 11 warnings emitted
+

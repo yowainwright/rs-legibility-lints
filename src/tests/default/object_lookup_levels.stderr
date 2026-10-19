@@ -1,0 +1,15 @@
+error: LEG024 prefer-object-lookup: use `matches!` for this repeated equality chain
+  --> $DIR/object_lookup_levels.rs:6:5
+   |
+LL |     value == 1 || value == 3 || value == 5
+   |     ^
+   |
+   = help: match the same local value against the literal alternatives
+note: the lint level is defined here
+  --> $DIR/object_lookup_levels.rs:4:8
+   |
+LL | #[deny(prefer_object_lookup)]
+   |        ^^^^^^^^^^^^^^^^^^^^
+
+error: aborting due to 1 previous error
+

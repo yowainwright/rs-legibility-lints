@@ -1,0 +1,28 @@
+warning: LEG001 max-expression-operators: expression exceeds 4 logical/comparison operators
+  --> $DIR/calls.rs:10:5
+   |
+LL |     values[0] && check(values[1] && values[2] && values[3] && values[4] && values[5])
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract named values while preserving evaluation order
+   = note: `#[warn(max_expression_operators)]` on by default
+
+warning: LEG001 max-expression-operators: expression exceeds 4 logical/comparison operators
+  --> $DIR/calls.rs:14:5
+   |
+LL |     values[0] && check(check(values[1] && values[2] && values[3] && values[4] && values[5]))
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract named values while preserving evaluation order
+
+warning: LEG001 max-expression-operators: expression exceeds 4 logical/comparison operators
+  --> $DIR/calls.rs:22:5
+   |
+LL | /     (values[0] && values[1] && values[2] && values[3])
+LL | |         .then_some(values[4] && values[5] && values[6])
+   | |_______________________________________________________^
+   |
+   = help: extract named values while preserving evaluation order
+
+warning: 3 warnings emitted
+

@@ -1,0 +1,5 @@
+too-many-lines-threshold = 19
+excessive-nesting-threshold = 3
+too-many-arguments-threshold = 5
+source-item-ordering = ["module"]
+module-items-ordered-within-groupings = "none"

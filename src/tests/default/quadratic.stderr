@@ -1,0 +1,75 @@
+warning: LEG005 no-quadratic-patterns: nested loop detected
+  --> $DIR/quadratic.rs:3:9
+   |
+LL |         for right in values {
+   |         ^
+   |
+   = help: consider an index or a single traversal while preserving behavior
+   = note: `#[warn(no_quadratic_patterns)]` on by default
+
+warning: LEG005 no-quadratic-patterns: nested loop detected
+  --> $DIR/quadratic.rs:11:9
+   |
+LL |         for _ in 0..1 {}
+   |         ^
+   |
+   = help: consider an index or a single traversal while preserving behavior
+
+warning: LEG005 no-quadratic-patterns: nested loop detected
+  --> $DIR/quadratic.rs:12:9
+   |
+LL |         loop {
+   |         ^
+   |
+   = help: consider an index or a single traversal while preserving behavior
+
+warning: LEG005 no-quadratic-patterns: nested loop detected
+  --> $DIR/quadratic.rs:21:9
+   |
+LL |         for _ in 0..1 {
+   |         ^
+   |
+   = help: consider an index or a single traversal while preserving behavior
+
+warning: LEG005 no-quadratic-patterns: linear collection search inside a loop
+  --> $DIR/quadratic.rs:29:12
+   |
+LL |         if slice.contains(id) {}
+   |            ^
+   |
+   = help: consider an index or a single traversal while preserving behavior
+
+warning: LEG005 no-quadratic-patterns: linear collection search inside a loop
+  --> $DIR/quadratic.rs:30:12
+   |
+LL |         if vector.contains(id) {}
+   |            ^
+   |
+   = help: consider an index or a single traversal while preserving behavior
+
+warning: LEG005 no-quadratic-patterns: linear collection search inside a loop
+  --> $DIR/quadratic.rs:31:12
+   |
+LL |         if array.contains(id) {}
+   |            ^
+   |
+   = help: consider an index or a single traversal while preserving behavior
+
+warning: LEG005 no-quadratic-patterns: linear collection search inside a loop
+  --> $DIR/quadratic.rs:36:11
+   |
+LL |     while values.contains(&id) {
+   |           ^
+   |
+   = help: consider an index or a single traversal while preserving behavior
+
+warning: LEG005 no-quadratic-patterns: nested loop detected
+  --> $DIR/quadratic.rs:101:13
+   |
+LL |             for _ in values {}
+   |             ^
+   |
+   = help: consider an index or a single traversal while preserving behavior
+
+warning: 9 warnings emitted
+

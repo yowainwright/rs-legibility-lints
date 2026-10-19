@@ -1,0 +1,53 @@
+warning: LEG005 no-quadratic-patterns: nested loop detected
+  --> $DIR/depth.rs:13:17
+   |
+LL |                 while flag {
+   |                 ^
+   |
+   = help: consider an index or a single traversal while preserving behavior
+   = note: `#[warn(no_quadratic_patterns)]` on by default
+
+warning: LEG003 max-control-flow-depth: control-flow depth 4 exceeds 3
+  --> $DIR/depth.rs:13:17
+   |
+LL |                 while flag {
+   |                 ^
+   |
+   = help: return early or extract a helper to reduce nesting
+   = note: `#[warn(max_control_flow_depth)]` on by default
+
+warning: LEG003 max-control-flow-depth: control-flow depth 4 exceeds 3
+  --> $DIR/depth.rs:25:17
+   |
+LL |                 if flag {
+   |                 ^
+   |
+   = help: return early or extract a helper to reduce nesting
+
+warning: LEG003 max-control-flow-depth: control-flow depth 5 exceeds 3
+  --> $DIR/depth.rs:26:21
+   |
+LL |                     if flag {}
+   |                     ^
+   |
+   = help: return early or extract a helper to reduce nesting
+
+warning: LEG003 max-control-flow-depth: control-flow depth 4 exceeds 3
+  --> $DIR/depth.rs:37:25
+   |
+LL |                 true => if flag {},
+   |                         ^
+   |
+   = help: return early or extract a helper to reduce nesting
+
+warning: LEG034 prefer-switch-over-long-if-chain: use `match` for this repeated comparison chain
+  --> $DIR/depth.rs:48:13
+   |
+LL |             if value == 1 {
+   |             ^
+   |
+   = help: match on the same value while preserving branch order and behavior
+   = note: `#[warn(prefer_switch_over_long_if_chain)]` on by default
+
+warning: 6 warnings emitted
+

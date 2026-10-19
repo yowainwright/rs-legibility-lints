@@ -1,0 +1,99 @@
+warning: LEG035 no-bool-literal-args: use a named value instead of a boolean literal argument
+  --> $DIR/bool_args.rs:18:10
+   |
+LL |     save(true);
+   |          ^^^^
+   |
+   = help: give this value a name that explains the argument's meaning
+   = note: `#[warn(no_bool_literal_args)]` on by default
+
+warning: LEG035 no-bool-literal-args: use a named value instead of a boolean literal argument
+  --> $DIR/bool_args.rs:19:10
+   |
+LL |     save(false);
+   |          ^^^^^
+   |
+   = help: give this value a name that explains the argument's meaning
+
+warning: LEG035 no-bool-literal-args: use a named value instead of a boolean literal argument
+  --> $DIR/bool_args.rs:20:13
+   |
+LL |     options(true, false);
+   |             ^^^^
+   |
+   = help: give this value a name that explains the argument's meaning
+
+warning: LEG035 no-bool-literal-args: use a named value instead of a boolean literal argument
+  --> $DIR/bool_args.rs:20:19
+   |
+LL |     options(true, false);
+   |                   ^^^^^
+   |
+   = help: give this value a name that explains the argument's meaning
+
+warning: LEG035 no-bool-literal-args: use a named value instead of a boolean literal argument
+  --> $DIR/bool_args.rs:24:30
+   |
+LL |     let writer = Writer::new(true);
+   |                              ^^^^
+   |
+   = help: give this value a name that explains the argument's meaning
+
+warning: LEG035 no-bool-literal-args: use a named value instead of a boolean literal argument
+  --> $DIR/bool_args.rs:25:17
+   |
+LL |     writer.save(false);
+   |                 ^^^^^
+   |
+   = help: give this value a name that explains the argument's meaning
+
+warning: LEG035 no-bool-literal-args: use a named value instead of a boolean literal argument
+  --> $DIR/bool_args.rs:26:27
+   |
+LL |     Writer::save(&writer, true);
+   |                           ^^^^
+   |
+   = help: give this value a name that explains the argument's meaning
+
+warning: LEG035 no-bool-literal-args: use a named value instead of a boolean literal argument
+  --> $DIR/bool_args.rs:30:18
+   |
+LL |     let _ = Flag(true);
+   |                  ^^^^
+   |
+   = help: give this value a name that explains the argument's meaning
+
+warning: LEG035 no-bool-literal-args: use a named value instead of a boolean literal argument
+  --> $DIR/bool_args.rs:31:18
+   |
+LL |     let _ = Some(false);
+   |                  ^^^^^
+   |
+   = help: give this value a name that explains the argument's meaning
+
+warning: LEG035 no-bool-literal-args: use a named value instead of a boolean literal argument
+  --> $DIR/bool_args.rs:35:14
+   |
+LL |     function(true);
+   |              ^^^^
+   |
+   = help: give this value a name that explains the argument's meaning
+
+warning: LEG035 no-bool-literal-args: use a named value instead of a boolean literal argument
+  --> $DIR/bool_args.rs:36:13
+   |
+LL |     closure(false);
+   |             ^^^^^
+   |
+   = help: give this value a name that explains the argument's meaning
+
+warning: LEG035 no-bool-literal-args: use a named value instead of a boolean literal argument
+  --> $DIR/bool_args.rs:40:10
+   |
+LL |     save((true));
+   |          ^^^^^^
+   |
+   = help: give this value a name that explains the argument's meaning
+
+warning: 12 warnings emitted
+

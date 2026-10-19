@@ -1,0 +1,47 @@
+warning: LEG076 no-loop-append-comprehension: build this vector with `map(...).collect()`
+  --> $DIR/loop_collect.rs:5:5
+   |
+LL |     for value in values {
+   |     ^
+   |
+   = help: preserve iteration order and ownership when replacing the push loop
+note: the lint level is defined here
+  --> $DIR/loop_collect.rs:1:9
+   |
+LL | #![warn(no_loop_append_comprehension)]
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: LEG076 no-loop-append-comprehension: build this vector with `map(...).collect()`
+  --> $DIR/loop_collect.rs:13:5
+   |
+LL |     for value in values {
+   |     ^
+   |
+   = help: preserve iteration order and ownership when replacing the push loop
+
+warning: LEG076 no-loop-append-comprehension: build this vector with `map(...).collect()`
+  --> $DIR/loop_collect.rs:21:5
+   |
+LL |     for value in values {
+   |     ^
+   |
+   = help: preserve iteration order and ownership when replacing the push loop
+
+warning: LEG076 no-loop-append-comprehension: build this vector with `map(...).collect()`
+  --> $DIR/loop_collect.rs:29:5
+   |
+LL |     for value in values {
+   |     ^
+   |
+   = help: preserve iteration order and ownership when replacing the push loop
+
+warning: LEG076 no-loop-append-comprehension: build this vector with `map(...).collect()`
+  --> $DIR/loop_collect.rs:39:5
+   |
+LL |     for value in values {
+   |     ^
+   |
+   = help: preserve iteration order and ownership when replacing the push loop
+
+warning: 5 warnings emitted
+

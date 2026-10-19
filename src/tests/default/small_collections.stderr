@@ -1,0 +1,67 @@
+warning: LEG059 no-small-collection-conversion: use the small array directly for this lookup
+  --> $DIR/small_collections.rs:4:5
+   |
+LL |     HashSet::from(["done", "failed"]).contains(&status)
+   |     ^
+   |
+   = help: use array `.contains()` while preserving evaluation order and borrowing
+   = note: `#[warn(no_small_collection_conversion)]` on by default
+
+warning: LEG059 no-small-collection-conversion: use the small array directly for this lookup
+  --> $DIR/small_collections.rs:8:5
+   |
+LL |     HashSet::from([1]).contains(&value)
+   |     ^
+   |
+   = help: use array `.contains()` while preserving evaluation order and borrowing
+
+warning: LEG059 no-small-collection-conversion: use the small array directly for this lookup
+  --> $DIR/small_collections.rs:12:5
+   |
+LL |     HashSet::<u8>::from([]).contains(&value)
+   |     ^
+   |
+   = help: use array `.contains()` while preserving evaluation order and borrowing
+
+warning: LEG059 no-small-collection-conversion: use the small array directly for this lookup
+  --> $DIR/small_collections.rs:16:5
+   |
+LL |     HashSet::from([-1, -2]).contains(&value)
+   |     ^
+   |
+   = help: use array `.contains()` while preserving evaluation order and borrowing
+
+warning: LEG059 no-small-collection-conversion: use the small array directly for this lookup
+  --> $DIR/small_collections.rs:20:5
+   |
+LL |     HashSet::from(['a', 'b']).contains(&value)
+   |     ^
+   |
+   = help: use array `.contains()` while preserving evaluation order and borrowing
+
+warning: LEG059 no-small-collection-conversion: use the small array directly for this lookup
+  --> $DIR/small_collections.rs:24:5
+   |
+LL |     HashSet::from([true, false]).contains(&value)
+   |     ^
+   |
+   = help: use array `.contains()` while preserving evaluation order and borrowing
+
+warning: LEG059 no-small-collection-conversion: use the small array directly for this lookup
+  --> $DIR/small_collections.rs:30:5
+   |
+LL |     Allowed::from([1, 2]).contains(&value)
+   |     ^
+   |
+   = help: use array `.contains()` while preserving evaluation order and borrowing
+
+warning: LEG059 no-small-collection-conversion: use the small array directly for this lookup
+  --> $DIR/small_collections.rs:34:5
+   |
+LL |     <HashSet<u8> as From<[u8; 2]>>::from([1, 2]).contains(&value)
+   |     ^
+   |
+   = help: use array `.contains()` while preserving evaluation order and borrowing
+
+warning: 8 warnings emitted
+

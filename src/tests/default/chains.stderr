@@ -1,0 +1,51 @@
+warning: LEG011 max-array-chain-depth: iterator chain exceeds 2 method calls
+  --> $DIR/chains.rs:10:10
+   |
+LL |         .any(|value| value > 100)
+   |          ^^^
+   |
+   = help: split the chain into named iterators without collecting intermediate results
+   = note: `#[warn(max_array_chain_depth)]` on by default
+
+warning: LEG011 max-array-chain-depth: iterator chain exceeds 2 method calls
+  --> $DIR/chains.rs:19:10
+   |
+LL |         .count()
+   |          ^^^^^
+   |
+   = help: split the chain into named iterators without collecting intermediate results
+
+warning: LEG011 max-array-chain-depth: iterator chain exceeds 2 method calls
+  --> $DIR/chains.rs:31:68
+   |
+LL |         .map(|value| (0..*value).filter(|n| *n > 0).map(|n| n + 1).count())
+   |                                                                    ^^^^^
+   |
+   = help: split the chain into named iterators without collecting intermediate results
+
+warning: LEG011 max-array-chain-depth: iterator chain exceeds 2 method calls
+  --> $DIR/chains.rs:40:10
+   |
+LL |         .max()
+   |          ^^^
+   |
+   = help: split the chain into named iterators without collecting intermediate results
+
+warning: LEG011 max-array-chain-depth: iterator chain exceeds 2 method calls
+  --> $DIR/chains.rs:45:62
+   |
+LL |     values.filter(|value| *value > 0).map(|value| value + 1).count()
+   |                                                              ^^^^^
+   |
+   = help: split the chain into named iterators without collecting intermediate results
+
+warning: LEG011 max-array-chain-depth: iterator chain exceeds 2 method calls
+  --> $DIR/chains.rs:50:80
+   |
+LL |         .zip(values.iter().filter(|value| **value > 0).map(|value| *value + 1).take(2))
+   |                                                                                ^^^^
+   |
+   = help: split the chain into named iterators without collecting intermediate results
+
+warning: 6 warnings emitted
+

@@ -1,0 +1,127 @@
+warning: LEG053 prefer-boolean-prefixes: give boolean binding `active` a predicate or state prefix
+  --> $DIR/boolean_prefixes.rs:5:15
+   |
+LL | fn parameters(active: bool, visible: &bool) {
+   |               ^^^^^^
+   |
+   = help: use a name such as `is_active`, `has_owner`, or `can_send`; update uses together
+note: the lint level is defined here
+  --> $DIR/boolean_prefixes.rs:1:9
+   |
+LL | #![warn(prefer_boolean_prefixes)]
+   |         ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: LEG053 prefer-boolean-prefixes: give boolean binding `visible` a predicate or state prefix
+  --> $DIR/boolean_prefixes.rs:5:29
+   |
+LL | fn parameters(active: bool, visible: &bool) {
+   |                             ^^^^^^^
+   |
+   = help: use a name such as `is_active`, `has_owner`, or `can_send`; update uses together
+
+warning: LEG053 prefer-boolean-prefixes: give boolean binding `active` a predicate or state prefix
+  --> $DIR/boolean_prefixes.rs:10:9
+   |
+LL |     let active = true;
+   |         ^^^^^^
+   |
+   = help: use a name such as `is_active`, `has_owner`, or `can_send`; update uses together
+
+warning: LEG053 prefer-boolean-prefixes: give boolean binding `visible` a predicate or state prefix
+  --> $DIR/boolean_prefixes.rs:11:9
+   |
+LL |     let visible: Flag = false;
+   |         ^^^^^^^
+   |
+   = help: use a name such as `is_active`, `has_owner`, or `can_send`; update uses together
+
+warning: LEG053 prefer-boolean-prefixes: give boolean binding `borrowed` a predicate or state prefix
+  --> $DIR/boolean_prefixes.rs:12:9
+   |
+LL |     let borrowed = &true;
+   |         ^^^^^^^^
+   |
+   = help: use a name such as `is_active`, `has_owner`, or `can_send`; update uses together
+
+warning: LEG053 prefer-boolean-prefixes: give boolean binding `cached` a predicate or state prefix
+  --> $DIR/boolean_prefixes.rs:13:10
+   |
+LL |     let (cached, count) = (false, 1);
+   |          ^^^^^^
+   |
+   = help: use a name such as `is_active`, `has_owner`, or `can_send`; update uses together
+
+warning: LEG053 prefer-boolean-prefixes: give boolean binding `writable` a predicate or state prefix
+  --> $DIR/boolean_prefixes.rs:14:13
+   |
+LL |     let ref writable = false;
+   |             ^^^^^^^^
+   |
+   = help: use a name such as `is_active`, `has_owner`, or `can_send`; update uses together
+
+warning: LEG053 prefer-boolean-prefixes: give boolean binding `match` a predicate or state prefix
+  --> $DIR/boolean_prefixes.rs:15:9
+   |
+LL |     let r#match = true;
+   |         ^^^^^^^
+   |
+   = help: use a name such as `is_active`, `has_owner`, or `can_send`; update uses together
+
+warning: LEG053 prefer-boolean-prefixes: give boolean binding `pending` a predicate or state prefix
+  --> $DIR/boolean_prefixes.rs:21:12
+   |
+LL |         Ok(pending) | Err(pending) => {
+   |            ^^^^^^^
+   |
+   = help: use a name such as `is_active`, `has_owner`, or `can_send`; update uses together
+
+warning: LEG053 prefer-boolean-prefixes: give boolean binding `cached` a predicate or state prefix
+  --> $DIR/boolean_prefixes.rs:28:17
+   |
+LL |     if let Some(cached) = value {
+   |                 ^^^^^^
+   |
+   = help: use a name such as `is_active`, `has_owner`, or `can_send`; update uses together
+
+warning: LEG053 prefer-boolean-prefixes: give boolean binding `active` a predicate or state prefix
+  --> $DIR/boolean_prefixes.rs:34:18
+   |
+LL |     let check = |active: bool| active;
+   |                  ^^^^^^
+   |
+   = help: use a name such as `is_active`, `has_owner`, or `can_send`; update uses together
+
+warning: LEG053 prefer-boolean-prefixes: give boolean binding `is` a predicate or state prefix
+  --> $DIR/boolean_prefixes.rs:38:15
+   |
+LL | fn boundaries(is: bool, has: bool, island: bool, isready: bool) {
+   |               ^^
+   |
+   = help: use a name such as `is_active`, `has_owner`, or `can_send`; update uses together
+
+warning: LEG053 prefer-boolean-prefixes: give boolean binding `has` a predicate or state prefix
+  --> $DIR/boolean_prefixes.rs:38:25
+   |
+LL | fn boundaries(is: bool, has: bool, island: bool, isready: bool) {
+   |                         ^^^
+   |
+   = help: use a name such as `is_active`, `has_owner`, or `can_send`; update uses together
+
+warning: LEG053 prefer-boolean-prefixes: give boolean binding `island` a predicate or state prefix
+  --> $DIR/boolean_prefixes.rs:38:36
+   |
+LL | fn boundaries(is: bool, has: bool, island: bool, isready: bool) {
+   |                                    ^^^^^^
+   |
+   = help: use a name such as `is_active`, `has_owner`, or `can_send`; update uses together
+
+warning: LEG053 prefer-boolean-prefixes: give boolean binding `isready` a predicate or state prefix
+  --> $DIR/boolean_prefixes.rs:38:50
+   |
+LL | fn boundaries(is: bool, has: bool, island: bool, isready: bool) {
+   |                                                  ^^^^^^^
+   |
+   = help: use a name such as `is_active`, `has_owner`, or `can_send`; update uses together
+
+warning: 15 warnings emitted
+

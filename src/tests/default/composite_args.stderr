@@ -1,0 +1,107 @@
+warning: LEG037 no-deep-composite-literal-arg: literal nesting exceeds 1 level
+  --> $DIR/composite_args.rs:31:13
+   |
+LL |     consume(Config { http: Http { timeout: 1 } });
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named value while preserving construction order and ownership
+   = note: `#[warn(no_deep_composite_literal_arg)]` on by default
+
+warning: LEG037 no-deep-composite-literal-arg: literal nesting exceeds 1 level
+  --> $DIR/composite_args.rs:32:13
+   |
+LL |     consume(Choice::Config { http: Http { timeout: 1 } });
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named value while preserving construction order and ownership
+
+warning: LEG037 no-deep-composite-literal-arg: literal nesting exceeds 1 level
+  --> $DIR/composite_args.rs:36:13
+   |
+LL |     consume([[1]]);
+   |             ^^^^^
+   |
+   = help: extract a named value while preserving construction order and ownership
+
+warning: LEG037 no-deep-composite-literal-arg: literal nesting exceeds 1 level
+  --> $DIR/composite_args.rs:37:13
+   |
+LL |     consume(((1, 2), 3));
+   |             ^^^^^^^^^^^
+   |
+   = help: extract a named value while preserving construction order and ownership
+
+warning: LEG037 no-deep-composite-literal-arg: literal nesting exceeds 1 level
+  --> $DIR/composite_args.rs:38:13
+   |
+LL |     consume([[1; 2]; 2]);
+   |             ^^^^^^^^^^^
+   |
+   = help: extract a named value while preserving construction order and ownership
+
+warning: LEG037 no-deep-composite-literal-arg: literal nesting exceeds 1 level
+  --> $DIR/composite_args.rs:39:13
+   |
+LL |     consume((Http { timeout: 1 }, 2));
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named value while preserving construction order and ownership
+
+warning: LEG037 no-deep-composite-literal-arg: literal nesting exceeds 1 level
+  --> $DIR/composite_args.rs:43:13
+   |
+LL |     consume([Config { http: Http { timeout: 1 } }]);
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named value while preserving construction order and ownership
+
+warning: LEG037 no-deep-composite-literal-arg: literal nesting exceeds 1 level
+  --> $DIR/composite_args.rs:47:17
+   |
+LL |     Writer.save(Config { http: Http { timeout: 1 } });
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named value while preserving construction order and ownership
+
+warning: LEG037 no-deep-composite-literal-arg: literal nesting exceeds 1 level
+  --> $DIR/composite_args.rs:51:13
+   |
+LL |     consume(&[&[1]]);
+   |             ^^^^^^^
+   |
+   = help: extract a named value while preserving construction order and ownership
+
+warning: LEG037 no-deep-composite-literal-arg: literal nesting exceeds 1 level
+  --> $DIR/composite_args.rs:55:10
+   |
+LL |     pair([[1]], ((1, 2), 3));
+   |          ^^^^^
+   |
+   = help: extract a named value while preserving construction order and ownership
+
+warning: LEG037 no-deep-composite-literal-arg: literal nesting exceeds 1 level
+  --> $DIR/composite_args.rs:55:17
+   |
+LL |     pair([[1]], ((1, 2), 3));
+   |                 ^^^^^^^^^^^
+   |
+   = help: extract a named value while preserving construction order and ownership
+
+warning: LEG037 no-deep-composite-literal-arg: literal nesting exceeds 1 level
+  --> $DIR/composite_args.rs:59:18
+   |
+LL |     let _ = Some([[1]]);
+   |                  ^^^^^
+   |
+   = help: extract a named value while preserving construction order and ownership
+
+warning: LEG037 no-deep-composite-literal-arg: literal nesting exceeds 1 level
+  --> $DIR/composite_args.rs:63:13
+   |
+LL |     consume(Http { ..Http { timeout: 1 } });
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named value while preserving construction order and ownership
+
+warning: 13 warnings emitted
+

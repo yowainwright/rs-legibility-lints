@@ -1,0 +1,47 @@
+warning: LEG052 prefer-verb-function-names: start this function name with an action verb
+  --> $DIR/verb_names.rs:3:4
+   |
+LL | fn data_fn() {}
+   |    ^^^^^^^
+   |
+   = help: name the action, such as `load_data`; update call sites together
+note: the lint level is defined here
+  --> $DIR/verb_names.rs:1:9
+   |
+LL | #![warn(prefer_verb_function_names)]
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: LEG052 prefer-verb-function-names: start this function name with an action verb
+  --> $DIR/verb_names.rs:5:4
+   |
+LL | fn config_load() {}
+   |    ^^^^^^^^^^^
+   |
+   = help: name the action, such as `load_data`; update call sites together
+
+warning: LEG052 prefer-verb-function-names: start this function name with an action verb
+  --> $DIR/verb_names.rs:7:4
+   |
+LL | fn settings_reset() {}
+   |    ^^^^^^^^^^^^^^
+   |
+   = help: name the action, such as `load_data`; update call sites together
+
+warning: LEG052 prefer-verb-function-names: start this function name with an action verb
+  --> $DIR/verb_names.rs:9:4
+   |
+LL | fn data_éléments() {}
+   |    ^^^^^^^^^^^^^
+   |
+   = help: name the action, such as `load_data`; update call sites together
+
+warning: LEG052 prefer-verb-function-names: start this function name with an action verb
+  --> $DIR/verb_names.rs:26:8
+   |
+LL |     fn data_load(&self) -> u8 {
+   |        ^^^^^^^^^
+   |
+   = help: name the action, such as `load_data`; update call sites together
+
+warning: 5 warnings emitted
+

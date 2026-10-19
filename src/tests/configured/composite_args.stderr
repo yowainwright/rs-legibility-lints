@@ -1,0 +1,11 @@
+warning: LEG037 no-deep-composite-literal-arg: literal nesting exceeds 2 levels
+  --> $DIR/composite_args.rs:9:13
+   |
+LL |     consume([[[1]]]);
+   |             ^^^^^^^
+   |
+   = help: extract a named value while preserving construction order and ownership
+   = note: `#[warn(no_deep_composite_literal_arg)]` on by default
+
+warning: 1 warning emitted
+

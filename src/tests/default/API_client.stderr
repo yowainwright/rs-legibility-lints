@@ -1,0 +1,11 @@
+warning: LEG026 no-mixed-filename-casing: `API_client.rs` is not snake_case
+  --> $DIR/API_client.rs:1:1
+   |
+LL | #![allow(non_snake_case, reason = "test filename casing independently of crate naming")]
+   | ^
+   |
+   = help: rename the file using lowercase letters and underscores; update module paths
+   = note: `#[warn(no_mixed_filename_casing)]` on by default
+
+warning: 1 warning emitted
+

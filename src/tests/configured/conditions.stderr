@@ -1,0 +1,35 @@
+warning: LEG002 hoist-if-operators: if condition exceeds 1 boolean operators
+  --> $DIR/conditions.rs:11:8
+   |
+LL |     if left && right && other {}
+   |        ^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: hoist the condition into a named boolean without changing evaluation order
+   = note: `#[warn(hoist_if_operators)]` on by default
+
+warning: LEG002 hoist-if-operators: if condition exceeds 1 boolean operators
+  --> $DIR/conditions.rs:12:8
+   |
+LL |     if left && (right || other) {}
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: hoist the condition into a named boolean without changing evaluation order
+
+warning: LEG002 hoist-if-operators: if condition exceeds 1 boolean operators
+  --> $DIR/conditions.rs:13:8
+   |
+LL |     if identity(left && right) && other {}
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: hoist the condition into a named boolean without changing evaluation order
+
+warning: LEG002 hoist-if-operators: if condition exceeds 1 boolean operators
+  --> $DIR/conditions.rs:14:8
+   |
+LL |     if !identity(left && right && other) {}
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: hoist the condition into a named boolean without changing evaluation order
+
+warning: 4 warnings emitted
+

@@ -1,0 +1,15 @@
+error: LEG039 no-unmatched-comments: comment does not match the configured policy
+  --> $DIR/comment_policy_levels.rs:3:5
+   |
+LL |     // Retry the request.
+   |     ^
+   |
+   = help: use an allowed pattern, prefix, or suffix; configure the comment policy in dylint.toml
+note: the lint level is defined here
+  --> $DIR/comment_policy_levels.rs:1:8
+   |
+LL | #[deny(no_unmatched_comments)]
+   |        ^^^^^^^^^^^^^^^^^^^^^
+
+error: aborting due to 1 previous error
+

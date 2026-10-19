@@ -1,0 +1,88 @@
+warning: LEG001 max-expression-operators: expression exceeds 4 logical/comparison operators
+  --> $DIR/operators.rs:6:5
+   |
+LL |     values[0] && values[1] && values[2] && values[3] && values[4] && values[5]
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract named values while preserving evaluation order
+   = note: `#[warn(max_expression_operators)]` on by default
+
+warning: LEG001 max-expression-operators: expression exceeds 4 logical/comparison operators
+  --> $DIR/operators.rs:10:5
+   |
+LL |     values[0] > 0 && values[1] > 0 && values[2] > 0
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract named values while preserving evaluation order
+
+warning: LEG001 max-expression-operators: expression exceeds 4 logical/comparison operators
+  --> $DIR/operators.rs:14:5
+   |
+LL |     !values[0] && !values[1] && !values[2]
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract named values while preserving evaluation order
+
+warning: LEG012 no-computed-values: returned calculation exceeds one arithmetic operator
+  --> $DIR/operators.rs:18:5
+   |
+LL |     value + 1 + 2 + 3 + 4 + 5 + 6
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named intermediate value while preserving evaluation order and ownership
+   = note: `#[warn(no_computed_values)]` on by default
+
+warning: LEG001 max-expression-operators: expression exceeds 4 logical/comparison operators
+  --> $DIR/operators.rs:30:5
+   |
+LL | /     both(
+LL | |         values[0] && values[1] && values[2] && values[3],
+LL | |         values[0] || values[1] || values[2] || values[3],
+LL | |     )
+   | |_____^
+   |
+   = help: extract named values while preserving evaluation order
+
+warning: LEG001 max-expression-operators: expression exceeds 4 logical/comparison operators
+  --> $DIR/operators.rs:37:20
+   |
+LL |     let check = || !values[0] && !values[1] && !values[2];
+   |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract named values while preserving evaluation order
+
+warning: LEG001 max-expression-operators: expression exceeds 4 logical/comparison operators
+  --> $DIR/operators.rs:48:5
+   |
+LL |     (values[0] && values[1] && values[2] && values[3]) && (values[4] && values[5])
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract named values while preserving evaluation order
+
+warning: LEG002 hoist-if-operators: if condition exceeds 0 boolean operators
+  --> $DIR/operators.rs:52:8
+   |
+LL |     if values[0] && values[1] && values[2] && values[3] && values[4] && values[5] {
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: hoist the condition into a named boolean without changing evaluation order
+   = note: `#[warn(hoist_if_operators)]` on by default
+
+warning: LEG001 max-expression-operators: expression exceeds 4 logical/comparison operators
+  --> $DIR/operators.rs:52:8
+   |
+LL |     if values[0] && values[1] && values[2] && values[3] && values[4] && values[5] {
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract named values while preserving evaluation order
+
+warning: LEG001 max-expression-operators: expression exceeds 4 logical/comparison operators
+  --> $DIR/operators.rs:60:5
+   |
+LL |     !values[0] && !values[1] && !values[2]
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract named values while preserving evaluation order
+
+warning: 10 warnings emitted
+

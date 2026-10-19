@@ -1,0 +1,93 @@
+warning: LEG005 no-quadratic-patterns: nested loop detected
+  --> $DIR/depth.rs:18:9
+   |
+LL |         while flag {
+   |         ^
+   |
+   = help: consider an index or a single traversal while preserving behavior
+   = note: `#[warn(no_quadratic_patterns)]` on by default
+
+warning: LEG005 no-quadratic-patterns: nested loop detected
+  --> $DIR/depth.rs:23:9
+   |
+LL |         for _ in 0..1 {}
+   |         ^
+   |
+   = help: consider an index or a single traversal while preserving behavior
+
+warning: LEG003 max-control-flow-depth: control-flow depth 2 exceeds 1
+  --> $DIR/depth.rs:18:9
+   |
+LL |         while flag {
+   |         ^
+   |
+   = help: return early or extract a helper to reduce nesting
+   = note: `#[warn(max_control_flow_depth)]` on by default
+
+warning: LEG003 max-control-flow-depth: control-flow depth 2 exceeds 1
+  --> $DIR/depth.rs:23:9
+   |
+LL |         for _ in 0..1 {}
+   |         ^
+   |
+   = help: return early or extract a helper to reduce nesting
+
+warning: LEG003 max-control-flow-depth: control-flow depth 2 exceeds 1
+  --> $DIR/depth.rs:31:9
+   |
+LL |         if value > 0 {}
+   |         ^
+   |
+   = help: return early or extract a helper to reduce nesting
+
+warning: LEG003 max-control-flow-depth: control-flow depth 2 exceeds 1
+  --> $DIR/depth.rs:33:9
+   |
+LL |         if value < 0 {}
+   |         ^
+   |
+   = help: return early or extract a helper to reduce nesting
+
+warning: LEG034 prefer-switch-over-long-if-chain: use `match` for this repeated comparison chain
+  --> $DIR/depth.rs:29:5
+   |
+LL |     if value == 1 {
+   |     ^
+   |
+   = help: match on the same value while preserving branch order and behavior
+   = note: `#[warn(prefer_switch_over_long_if_chain)]` on by default
+
+warning: LEG003 max-control-flow-depth: control-flow depth 2 exceeds 1
+  --> $DIR/depth.rs:39:17
+   |
+LL |         true => if flag {},
+   |                 ^
+   |
+   = help: return early or extract a helper to reduce nesting
+
+warning: LEG003 max-control-flow-depth: control-flow depth 2 exceeds 1
+  --> $DIR/depth.rs:40:18
+   |
+LL |         false => if !flag {},
+   |                  ^
+   |
+   = help: return early or extract a helper to reduce nesting
+
+warning: LEG003 max-control-flow-depth: control-flow depth 2 exceeds 1
+  --> $DIR/depth.rs:46:9
+   |
+LL |         if value > 0 {}
+   |         ^
+   |
+   = help: return early or extract a helper to reduce nesting
+
+warning: LEG003 max-control-flow-depth: control-flow depth 2 exceeds 1
+  --> $DIR/depth.rs:67:13
+   |
+LL |             if flag {}
+   |             ^
+   |
+   = help: return early or extract a helper to reduce nesting
+
+warning: 11 warnings emitted
+
