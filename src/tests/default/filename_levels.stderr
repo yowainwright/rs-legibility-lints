@@ -1,0 +1,28 @@
+warning: LEG026 no-mixed-filename-casing: `API_module.rs` is not snake_case
+  --> $DIR/auxiliary/API_module.rs:1:1
+   |
+LL | mod nested {}
+   | ^
+   |
+   = help: rename the file using lowercase letters and underscores; update module paths
+note: the lint level is defined here
+  --> $DIR/filename_levels.rs:1:8
+   |
+LL | #[warn(no_mixed_filename_casing)]
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: LEG026 no-mixed-filename-casing: `API_module.rs` is not snake_case
+  --> $DIR/auxiliary/API_module.rs:1:1
+   |
+LL | mod nested {}
+   | ^
+   |
+   = help: rename the file using lowercase letters and underscores; update module paths
+note: the lint level is defined here
+  --> $DIR/filename_levels.rs:5:8
+   |
+LL | #[deny(no_mixed_filename_casing)]
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: aborting due to 1 previous error; 1 warning emitted
+

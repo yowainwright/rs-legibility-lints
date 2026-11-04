@@ -59,4 +59,12 @@ fn locally_suppressed() {
     save(false);
 }
 
+macro_rules! pass {
+    ($value:expr) => { $value };
+}
+
+fn forwarded_macro_argument() {
+    save(pass!(true));
+}
+
 fn main() {}

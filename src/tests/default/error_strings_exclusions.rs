@@ -67,4 +67,12 @@ fn locally_suppressed() {
     let _ = Error::other("Bad request.");
 }
 
+macro_rules! pass {
+    ($value:expr) => { $value };
+}
+
+fn forwarded_macro_argument() {
+    let _ = Error::other(pass!("Bad request."));
+}
+
 fn main() {}

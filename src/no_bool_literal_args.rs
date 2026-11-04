@@ -2,6 +2,8 @@ use rustc_errors::DiagDecorator;
 use rustc_hir::{Expr, ExprKind};
 use rustc_lint::{LateContext, LateLintPass, LintContext};
 
+use crate::no_repeated_comprehension_filter::contains_macro_call;
+
 rustc_session::declare_lint! {
     pub(crate) NO_BOOL_LITERAL_ARGS,
     Warn,
@@ -21,10 +23,15 @@ impl<'tcx> LateLintPass<'tcx> for NoBoolLiteralArgs {
         if crate::is_macro_expansion(expr) {
             return;
         }
-        for argument in arguments
+        let mut literals = arguments
             .iter()
             .filter(|argument| is_boolean_literal(cx, argument))
-        {
+            .peekable();
+        let should_skip = literals.peek().is_none() || contains_macro_call(cx, expr);
+        if should_skip {
+            return;
+        }
+        for argument in literals {
             report(cx, argument);
         }
     }

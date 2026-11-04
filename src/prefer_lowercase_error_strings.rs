@@ -5,6 +5,8 @@ use rustc_lint::{LateContext, LateLintPass, LintContext};
 use rustc_span::Symbol;
 use rustc_span::def_id::DefId;
 
+use crate::no_repeated_comprehension_filter::contains_macro_call;
+
 rustc_session::declare_lint! {
     pub(crate) PREFER_LOWERCASE_ERROR_STRINGS,
     Warn,
@@ -23,7 +25,8 @@ impl<'tcx> LateLintPass<'tcx> for PreferLowercaseErrorStrings {
         let ExprKind::Lit(literal) = argument.kind else {
             return;
         };
-        if crate::is_macro_expansion(argument) {
+        let should_skip = crate::is_macro_expansion(argument) || contains_macro_call(cx, expr);
+        if should_skip {
             return;
         }
         let Some(text) = literal.node.str() else {

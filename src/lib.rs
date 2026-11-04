@@ -1,5 +1,7 @@
 #![feature(rustc_private)]
 
+#[cfg(test)]
+extern crate rustc_driver as _;
 extern crate rustc_errors;
 extern crate rustc_hir;
 extern crate rustc_lexer;
@@ -80,6 +82,7 @@ use require_filename_matches_dirname::{
     REQUIRE_FILENAME_MATCHES_DIRNAME, RequireFilenameMatchesDirname,
 };
 
+#[cfg(not(test))]
 dylint_linting::dylint_library!();
 
 #[derive(serde::Deserialize)]

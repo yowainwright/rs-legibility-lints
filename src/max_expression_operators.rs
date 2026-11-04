@@ -20,7 +20,7 @@ impl<'tcx> LateLintPass<'tcx> for MaxExpressionOperators {
             return;
         }
         let parent = cx.tcx.parent_hir_node(expr.hir_id);
-        let is_nested = matches!(parent, Node::Expr(parent) if is_operator_expression(parent));
+        let is_nested = matches!(parent, Node::Expr(parent) if is_counted_expression(parent));
         if is_nested {
             return;
         }
@@ -43,10 +43,14 @@ impl MaxExpressionOperators {
     }
 }
 
-fn is_operator_expression(expr: &Expr<'_>) -> bool {
+fn is_counted_expression(expr: &Expr<'_>) -> bool {
     matches!(
         expr.kind,
-        ExprKind::Binary(..) | ExprKind::Unary(..) | ExprKind::DropTemps(..)
+        ExprKind::Binary(..)
+            | ExprKind::Unary(..)
+            | ExprKind::DropTemps(..)
+            | ExprKind::Call(..)
+            | ExprKind::MethodCall(..)
     )
 }
 

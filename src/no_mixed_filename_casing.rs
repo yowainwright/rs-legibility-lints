@@ -3,6 +3,7 @@ use std::collections::HashSet;
 use rustc_errors::DiagDecorator;
 use rustc_hir::{HirId, Mod};
 use rustc_lint::{LateContext, LateLintPass, LintContext};
+use rustc_session::lint::{Level, StableLintExpectationId};
 use rustc_span::{BytePos, FileName, Span};
 
 rustc_session::declare_lint! {
@@ -15,14 +16,14 @@ rustc_session::impl_lint_pass!(NoMixedFilenameCasing => [NO_MIXED_FILENAME_CASIN
 
 #[derive(Default)]
 pub(crate) struct NoMixedFilenameCasing {
-    reported: HashSet<BytePos>,
+    reported: HashSet<(BytePos, Level, Option<StableLintExpectationId>)>,
 }
 
 impl<'tcx> LateLintPass<'tcx> for NoMixedFilenameCasing {
     fn check_mod(&mut self, cx: &LateContext<'tcx>, module: &'tcx Mod<'tcx>, _: HirId) {
         let span = module.spans.inner_span;
-        let should_skip =
-            span.from_expansion() || cx.get_lint_level_spec(NO_MIXED_FILENAME_CASING).is_allow();
+        let level = cx.get_lint_level_spec(NO_MIXED_FILENAME_CASING);
+        let should_skip = span.from_expansion() || level.is_allow();
         if should_skip {
             return;
         }
@@ -30,7 +31,8 @@ impl<'tcx> LateLintPass<'tcx> for NoMixedFilenameCasing {
         let Some(stem) = filename_stem(&file.name) else {
             return;
         };
-        let should_report = has_mixed_casing(stem) && self.reported.insert(file.start_pos);
+        let key = (file.start_pos, level.level(), level.lint_id());
+        let should_report = has_mixed_casing(stem) && self.reported.insert(key);
         if should_report {
             let start = span.with_lo(file.start_pos).shrink_to_lo();
             report(cx, start, stem);

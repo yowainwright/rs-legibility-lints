@@ -154,7 +154,7 @@ Removed lines are don'ts. Added lines are dos. Examples are focused snippets, no
 ### `LEG001 max-expression-operators`
 
 Calls contribute to the count; blocks, closures, and async bodies are separate.
-Arithmetic and macro-generated operators are excluded.
+Reports once per complete expression, including nested calls. Arithmetic and macro-generated operators are excluded.
 
 #### do / don't
 
@@ -251,6 +251,7 @@ Checks typed boolean bindings, including parameters; excludes fields, constants,
 
 Checks private functions and inherent methods forwarding every parameter in order.
 Explicit visibility, trait methods, async/const/unsafe/extern boundaries, and generated code are excluded.
+Argument adjustments that change types or ownership are excluded.
 
 #### do / don't
 
@@ -358,7 +359,8 @@ Unused and cfg-disabled files are excluded. No automatic rename.
 
 ### `LEG026 no-mixed-filename-casing`
 
-Checks compiled local `.rs` module filenames, once per file. Update module paths when renaming.
+Checks compiled local `.rs` module filenames, once per file and effective lint level.
+Separate lint expectations are preserved. Update module paths when renaming.
 Unused and cfg-disabled files are outside this compiler lint's scope.
 
 #### do / don't
@@ -408,7 +410,7 @@ The final `else` does not count. Calls, fields, floats, overloaded equality, and
 ### `LEG035 no-bool-literal-args`
 
 Flags each direct `true` or `false` argument in function, method, and constructor calls.
-Named values, method receivers, and macro expansions are excluded. No automatic fix.
+Named values, method receivers, and calls containing macro uses are excluded. No automatic fix.
 
 #### do / don't
 
@@ -607,7 +609,7 @@ A unit-returning `return;` can be a valid guard.
 
 Checks direct string literals in `std::io::Error::new` and `Error::other`, including import and type aliases.
 Preserves initialisms and names with internal capitals, such as `HTTP` and `TLSConfig`.
-Dynamic messages, unrelated constructors, and macro expansions are excluded. No automatic fix.
+Dynamic messages, unrelated constructors, and calls containing macro uses are excluded. No automatic fix.
 
 #### do / don't
 
@@ -997,7 +999,8 @@ Shell positional-parameter expansion rules do not apply to typed Rust parameters
 | `make build` | Build the release plugin. |
 | `make validate-full` | Validation, release build, and coverage. |
 
-`make lint-session` runs `make lint`. Coverage measures Cargo tests, excluding the Dylint smoke process.
+`make lint-session` runs `make lint`. Coverage includes the plugin loaded by compiler fixtures.
+Instrumented builds stay in `target/coverage-build/`; reports stay in `target/coverage/`.
 
 The compiler is pinned in [rust-toolchain.toml](rust-toolchain.toml); Dylint uses version 6.2.0.
 Rustfmt uses Rust 2024, 100 columns, four spaces, and LF endings.

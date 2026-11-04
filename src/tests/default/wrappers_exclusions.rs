@@ -167,4 +167,20 @@ pub fn pair(left: u8, right: u8) -> u8 {
     left.wrapping_add(right)
 }
 
+fn consumes_vector(values: Vec<u8>) -> usize {
+    values.len()
+}
+
+fn consumes_string(value: String) -> bool {
+    value.is_empty()
+}
+
+fn unsizes_argument(values: &[u8; 2]) -> usize {
+    slice_size(values)
+}
+
+pub fn slice_size(values: &[u8]) -> usize {
+    values.len()
+}
+
 fn main() {}

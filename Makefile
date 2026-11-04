@@ -59,10 +59,16 @@ test-smoke:
 
 test-coverage:
 	mkdir -p target/coverage
-	$(CARGO) llvm-cov --locked --all-targets --lcov --output-path target/coverage/lcov.info
+	CARGO_TARGET_DIR="$(CURDIR)/target/coverage-build" bash -euo pipefail -c \
+		'coverage_env="$$($(CARGO) llvm-cov show-env --sh)"; eval "$$coverage_env"; \
+		$(CARGO) llvm-cov clean --workspace; \
+		$(CARGO) test --locked --all-targets; \
+		$(CARGO) llvm-cov report --lcov --output-path target/coverage/lcov.info'
 
 test-coverage-html: test-coverage
-	$(CARGO) llvm-cov report --html --output-dir target/coverage
+	CARGO_TARGET_DIR="$(CURDIR)/target/coverage-build" bash -euo pipefail -c \
+		'coverage_env="$$($(CARGO) llvm-cov show-env --sh)"; eval "$$coverage_env"; \
+		$(CARGO) llvm-cov report --html --output-dir target/coverage'
 
 validate: format typecheck lint test
 

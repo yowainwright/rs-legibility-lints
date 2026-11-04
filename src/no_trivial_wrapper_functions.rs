@@ -148,7 +148,13 @@ fn is_parameter(cx: &LateContext<'_>, param: &Param<'_>, arg: &Expr<'_>) -> bool
     let ExprKind::Path(path) = arg.kind else {
         return false;
     };
-    matches!(cx.qpath_res(&path, arg.hir_id), Res::Local(binding) if binding == id)
+    let is_binding =
+        matches!(cx.qpath_res(&path, arg.hir_id), Res::Local(binding) if binding == id);
+    let original = cx.typeck_results().expr_ty(arg);
+    let adjusted = cx.typeck_results().expr_ty_adjusted(arg);
+    let is_same_type = cx.tcx.erase_and_anonymize_regions(original)
+        == cx.tcx.erase_and_anonymize_regions(adjusted);
+    is_binding && is_same_type
 }
 
 fn report(cx: &LateContext<'_>, id: LocalDefId, span: Span) {
