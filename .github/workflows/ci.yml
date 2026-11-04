@@ -1,0 +1,101 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+  workflow_call:
+    inputs:
+      release_artifacts:
+        description: Build and upload platform-specific Dylint libraries.
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    name: Test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            platform: linux-amd64
+          - os: macos-latest
+            platform: darwin-arm64
+    env:
+      FS_LINT_PLATFORM: ${{ matrix.platform }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install pinned toolchain and tools
+        run: make setup
+
+      - name: Install fs-lint
+        run: |
+          set -euo pipefail
+          asset="fs-lint-${FS_LINT_PLATFORM}"
+          release_url="https://github.com/yowainwright/fs-lint/releases/download/v0.3.0"
+          mkdir -p target/ci-tools .tools/bin
+          curl --fail --silent --show-error --location "${release_url}/${asset}" --output "target/ci-tools/${asset}"
+          curl --fail --silent --show-error --location "${release_url}/${asset}.sha256" --output "target/ci-tools/${asset}.sha256"
+          cd target/ci-tools
+          shasum -a 256 -c "${asset}.sha256"
+          chmod +x "${asset}"
+          mv "${asset}" ../../.tools/bin/fs-lint
+
+      - name: Validate
+        run: make validate
+
+      - name: Build release plugin
+        if: inputs.release_artifacts
+        run: make build
+
+      - name: Package release plugin
+        if: inputs.release_artifacts
+        run: |
+          set -euo pipefail
+          host="$(rustc -vV | sed -n 's/^host: //p')"
+          libraries=(target/release/librs_legibility_lints@*)
+          test "${#libraries[@]}" -eq 1
+          test -f "${libraries[0]}"
+          mkdir -p target/release-artifacts
+          archive="${GITHUB_WORKSPACE}/target/release-artifacts/rs-legibility-lints-${GITHUB_REF_NAME}-${host}.tar.gz"
+          tar -czf "${archive}" -C target/release "$(basename "${libraries[0]}")" -C "${GITHUB_WORKSPACE}" LICENSE rust-toolchain.toml
+
+      - name: Upload release plugin
+        if: inputs.release_artifacts
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7
+        with:
+          name: release-${{ matrix.platform }}
+          path: target/release-artifacts/*.tar.gz
+          if-no-files-found: error
+
+  audit:
+    name: Vulnerability check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install cargo-audit
+        run: |
+          set -euo pipefail
+          rustup toolchain install stable --profile minimal
+          cargo +stable install cargo-audit --locked --version 0.22.2 --root .tools
+
+      - name: Audit locked dependencies
+        run: .tools/bin/cargo-audit audit

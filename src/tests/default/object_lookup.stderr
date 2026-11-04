@@ -1,0 +1,43 @@
+warning: LEG024 prefer-object-lookup: use `matches!` for this repeated equality chain
+  --> $DIR/object_lookup.rs:4:5
+   |
+LL |     status == "ready" || status == "queued" || status == "retrying"
+   |     ^
+   |
+   = help: match the same local value against the literal alternatives
+   = note: `#[warn(prefer_object_lookup)]` on by default
+
+warning: LEG024 prefer-object-lookup: use `matches!` for this repeated equality chain
+  --> $DIR/object_lookup.rs:8:5
+   |
+LL |     1 == value || value == 3 || value == 5
+   |     ^
+   |
+   = help: match the same local value against the literal alternatives
+
+warning: LEG024 prefer-object-lookup: use `matches!` for this repeated equality chain
+  --> $DIR/object_lookup.rs:12:5
+   |
+LL |     (value == 1 || value == 3) || (value == 5 || value == 7)
+   |     ^
+   |
+   = help: match the same local value against the literal alternatives
+
+warning: LEG024 prefer-object-lookup: use `matches!` for this repeated equality chain
+  --> $DIR/object_lookup.rs:16:5
+   |
+LL |     value == -1 || -3 == value || value == 5
+   |     ^
+   |
+   = help: match the same local value against the literal alternatives
+
+warning: LEG024 prefer-object-lookup: use `matches!` for this repeated equality chain
+  --> $DIR/object_lookup.rs:20:5
+   |
+LL |     value == 'a' || value == 'c' || value == 'e'
+   |     ^
+   |
+   = help: match the same local value against the literal alternatives
+
+warning: 5 warnings emitted
+

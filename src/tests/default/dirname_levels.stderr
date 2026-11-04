@@ -1,0 +1,28 @@
+warning: LEG025 require-filename-matches-dirname: `ordersome.rs` must start with `orders`
+  --> $DIR/auxiliary/orders/ordersome.rs:1:1
+   |
+LL | pub const VALUE: u8 = 1;
+   | ^
+   |
+   = help: use `orders.rs` or an `orders_` filename prefix; update module paths
+note: the lint level is defined here
+  --> $DIR/dirname_levels.rs:1:8
+   |
+LL | #[warn(require_filename_matches_dirname)]
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: LEG025 require-filename-matches-dirname: `ordersome.rs` must start with `orders`
+  --> $DIR/auxiliary/orders/ordersome.rs:1:1
+   |
+LL | pub const VALUE: u8 = 1;
+   | ^
+   |
+   = help: use `orders.rs` or an `orders_` filename prefix; update module paths
+note: the lint level is defined here
+  --> $DIR/dirname_levels.rs:5:8
+   |
+LL | #[deny(require_filename_matches_dirname)]
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: aborting due to 1 previous error; 1 warning emitted
+

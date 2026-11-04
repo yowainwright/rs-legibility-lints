@@ -1,0 +1,7 @@
+error: invalid comment-matchers in dylint.toml: regex parse error:
+           [
+           ^
+       error: unclosed character class
+
+error: aborting due to 1 previous error
+

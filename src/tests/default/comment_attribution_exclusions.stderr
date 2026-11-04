@@ -1,0 +1,11 @@
+warning: LEG040 no-automated-comment-attribution: remove automated authorship attribution
+  --> $DIR/auxiliary/comment_attribution.rs:1:1
+   |
+LL | // @author: Codex
+   | ^
+   |
+   = help: keep the useful explanation and required generation markers
+   = note: `#[warn(no_automated_comment_attribution)]` on by default
+
+warning: 1 warning emitted
+

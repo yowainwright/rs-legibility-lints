@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "newFiles": {
+    "default": "deny",
+    "allow": [
+      ".cargo/config.toml",
+      ".github/CODEOWNERS",
+      ".github/**/*.md",
+      ".github/**/*.yml",
+      ".gitignore",
+      "Cargo.toml",
+      "Cargo.lock",
+      "LICENSE",
+      "Makefile",
+      "README.md",
+      "fs-lint.json",
+      "rust-toolchain.toml",
+      ".editorconfig",
+      "clippy.toml",
+      "dylint.toml",
+      "rustfmt.toml",
+      "src/**/*.{rs,stderr,fixed}"
+    ]
+  }
+}

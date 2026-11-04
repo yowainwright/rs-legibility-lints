@@ -1,0 +1,15 @@
+error: LEG061 no-stacked-comments: consecutive standalone comments
+  --> $DIR/stacked_comments_levels.rs:4:5
+   |
+LL |     // Explain its order.
+   |     ^
+   |
+   = help: remove redundant comments or combine the useful explanation
+note: the lint level is defined here
+  --> $DIR/stacked_comments_levels.rs:1:8
+   |
+LL | #[deny(no_stacked_comments)]
+   |        ^^^^^^^^^^^^^^^^^^^
+
+error: aborting due to 1 previous error
+

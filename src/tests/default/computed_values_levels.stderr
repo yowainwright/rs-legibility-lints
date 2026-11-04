@@ -1,0 +1,15 @@
+error: LEG012 no-computed-values: returned calculation exceeds one arithmetic operator
+  --> $DIR/computed_values_levels.rs:5:5
+   |
+LL |     subtotal + tax + shipping
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named intermediate value while preserving evaluation order and ownership
+note: the lint level is defined here
+  --> $DIR/computed_values_levels.rs:3:8
+   |
+LL | #[deny(no_computed_values)]
+   |        ^^^^^^^^^^^^^^^^^^
+
+error: aborting due to 1 previous error
+

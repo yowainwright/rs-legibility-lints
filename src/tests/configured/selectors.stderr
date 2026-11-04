@@ -1,0 +1,11 @@
+warning: LEG031 no-deep-selector-chain: selector/index chain exceeds 1 accesses
+  --> $DIR/selectors.rs:6:5
+   |
+LL |     value.0.0
+   |     ^^^^^^^^^
+   |
+   = help: extract a named reference while preserving evaluation order and borrowing
+   = note: `#[warn(no_deep_selector_chain)]` on by default
+
+warning: 1 warning emitted
+

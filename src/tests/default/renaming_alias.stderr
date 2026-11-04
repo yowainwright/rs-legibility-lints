@@ -1,0 +1,59 @@
+warning: LEG058 no-single-use-renaming-alias: `user_data` only renames `user` for one use
+  --> $DIR/renaming_alias.rs:4:9
+   |
+LL |     let user_data = user;
+   |         ^^^^^^^^^
+   |
+   = help: pass the original binding directly and remove this alias
+   = note: `#[warn(no_single_use_renaming_alias)]` on by default
+
+warning: LEG058 no-single-use-renaming-alias: `user_data` only renames `user` for one use
+  --> $DIR/renaming_alias.rs:14:9
+   |
+LL |     let user_data = user;
+   |         ^^^^^^^^^
+   |
+   = help: pass the original binding directly and remove this alias
+
+warning: LEG058 no-single-use-renaming-alias: `user_data` only renames `user` for one use
+  --> $DIR/renaming_alias.rs:19:9
+   |
+LL |     let user_data = user;
+   |         ^^^^^^^^^
+   |
+   = help: pass the original binding directly and remove this alias
+
+warning: LEG058 no-single-use-renaming-alias: `user_data` only renames `user` for one use
+  --> $DIR/renaming_alias.rs:27:9
+   |
+LL |     let user_data = user;
+   |         ^^^^^^^^^
+   |
+   = help: pass the original binding directly and remove this alias
+
+warning: LEG058 no-single-use-renaming-alias: `user_data` only renames `user` for one use
+  --> $DIR/renaming_alias.rs:32:9
+   |
+LL |     let user_data = user;
+   |         ^^^^^^^^^
+   |
+   = help: pass the original binding directly and remove this alias
+
+warning: LEG058 no-single-use-renaming-alias: `user_data` only renames `user` for one use
+  --> $DIR/renaming_alias.rs:38:13
+   |
+LL |         let user_data = user;
+   |             ^^^^^^^^^
+   |
+   = help: pass the original binding directly and remove this alias
+
+warning: LEG058 no-single-use-renaming-alias: `user_data` only renames `user` for one use
+  --> $DIR/renaming_alias.rs:45:13
+   |
+LL |         let user_data = user;
+   |             ^^^^^^^^^
+   |
+   = help: pass the original binding directly and remove this alias
+
+warning: 7 warnings emitted
+

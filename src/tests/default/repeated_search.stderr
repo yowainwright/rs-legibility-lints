@@ -1,0 +1,75 @@
+warning: LEG057 no-repeated-collection-search: this search repeats the preceding search
+  --> $DIR/repeated_search.rs:3:25
+   |
+LL |     let second = values.contains(&needle);
+   |                         ^^^^^^^^
+   |
+   = help: reuse the previous result without changing evaluation order or borrowing
+   = note: `#[warn(no_repeated_collection_search)]` on by default
+
+warning: LEG057 no-repeated-collection-search: this search repeats the preceding search
+  --> $DIR/repeated_search.rs:4:24
+   |
+LL |     let third = values.contains(&needle);
+   |                        ^^^^^^^^
+   |
+   = help: reuse the previous result without changing evaluation order or borrowing
+
+warning: LEG057 no-repeated-collection-search: this search repeats the preceding search
+  --> $DIR/repeated_search.rs:9:25
+   |
+LL |     let second = values.contains(&needle);
+   |                         ^^^^^^^^
+   |
+   = help: reuse the previous result without changing evaluation order or borrowing
+
+warning: LEG057 no-repeated-collection-search: this search repeats the preceding search
+  --> $DIR/repeated_search.rs:14:25
+   |
+LL |     let second = values.contains(&needle);
+   |                         ^^^^^^^^
+   |
+   = help: reuse the previous result without changing evaluation order or borrowing
+
+warning: LEG057 no-repeated-collection-search: this search repeats the preceding search
+  --> $DIR/repeated_search.rs:19:25
+   |
+LL |     let second = values.contains(needle);
+   |                         ^^^^^^^^
+   |
+   = help: reuse the previous result without changing evaluation order or borrowing
+
+warning: LEG057 no-repeated-collection-search: this search repeats the preceding search
+  --> $DIR/repeated_search.rs:24:25
+   |
+LL |     let second = values.contains(&needle);
+   |                         ^^^^^^^^
+   |
+   = help: reuse the previous result without changing evaluation order or borrowing
+
+warning: LEG057 no-repeated-collection-search: this search repeats the preceding search
+  --> $DIR/repeated_search.rs:29:25
+   |
+LL |     let second = values.contains(&needle);
+   |                         ^^^^^^^^
+   |
+   = help: reuse the previous result without changing evaluation order or borrowing
+
+warning: LEG057 no-repeated-collection-search: this search repeats the preceding search
+  --> $DIR/repeated_search.rs:35:29
+   |
+LL |         let second = values.contains(&needle);
+   |                             ^^^^^^^^
+   |
+   = help: reuse the previous result without changing evaluation order or borrowing
+
+warning: LEG057 no-repeated-collection-search: this search repeats the preceding search
+  --> $DIR/repeated_search.rs:42:29
+   |
+LL |         let second = values.contains(&needle);
+   |                             ^^^^^^^^
+   |
+   = help: reuse the previous result without changing evaluation order or borrowing
+
+warning: 9 warnings emitted
+

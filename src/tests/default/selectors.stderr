@@ -1,0 +1,67 @@
+warning: LEG031 no-deep-selector-chain: selector/index chain exceeds 3 accesses
+  --> $DIR/selectors.rs:26:6
+   |
+LL |     &root.user.profile.settings.email
+   |      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named reference while preserving evaluation order and borrowing
+   = note: `#[warn(no_deep_selector_chain)]` on by default
+
+warning: LEG031 no-deep-selector-chain: selector/index chain exceeds 3 accesses
+  --> $DIR/selectors.rs:30:5
+   |
+LL |     root.user.profile.settings.email.enabled
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named reference while preserving evaluation order and borrowing
+
+warning: LEG031 no-deep-selector-chain: selector/index chain exceeds 3 accesses
+  --> $DIR/selectors.rs:44:5
+   |
+LL |     values[0][0][0][0]
+   |     ^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named reference while preserving evaluation order and borrowing
+
+warning: LEG031 no-deep-selector-chain: selector/index chain exceeds 3 accesses
+  --> $DIR/selectors.rs:56:5
+   |
+LL |     rows[0].cells[0].value
+   |     ^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named reference while preserving evaluation order and borrowing
+
+warning: LEG031 no-deep-selector-chain: selector/index chain exceeds 3 accesses
+  --> $DIR/selectors.rs:60:5
+   |
+LL |     value.0.0.0.0
+   |     ^^^^^^^^^^^^^
+   |
+   = help: extract a named reference while preserving evaluation order and borrowing
+
+warning: LEG031 no-deep-selector-chain: selector/index chain exceeds 3 accesses
+  --> $DIR/selectors.rs:64:12
+   |
+LL |     values[positions[0][0][0][0]]
+   |            ^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named reference while preserving evaluation order and borrowing
+
+warning: LEG031 no-deep-selector-chain: selector/index chain exceeds 3 accesses
+  --> $DIR/selectors.rs:68:5
+   |
+LL |     root.user.profile.settings.email.enabled.then_some(1)
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named reference while preserving evaluation order and borrowing
+
+warning: LEG031 no-deep-selector-chain: selector/index chain exceeds 3 accesses
+  --> $DIR/selectors.rs:72:5
+   |
+LL |     rows[0].cells[0].value = 1;
+   |     ^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract a named reference while preserving evaluation order and borrowing
+
+warning: 8 warnings emitted
+

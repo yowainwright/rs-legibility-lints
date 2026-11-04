@@ -1,0 +1,15 @@
+error: LEG078 prefer-named-exception-context: this error wrapper only repeats the original error message
+  --> $DIR/exception_context_levels.rs:3:27
+   |
+LL |     input.map_err(|error| std::io::Error::other(error.to_string()))
+   |                           ^
+   |
+   = help: add operation context and preserve the original error as a source where appropriate
+note: the lint level is defined here
+  --> $DIR/exception_context_levels.rs:1:8
+   |
+LL | #[deny(prefer_named_exception_context)]
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: aborting due to 1 previous error
+

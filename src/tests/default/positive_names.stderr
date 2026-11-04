@@ -1,0 +1,115 @@
+warning: LEG007 prefer-positive-condition-names: negative boolean name `is_not_ready`
+  --> $DIR/positive_names.rs:10:9
+   |
+LL |     let is_not_ready = status != "ready";
+   |         ^^^^^^^^^^^^
+   |
+   = help: use a positive boolean name and negate at use sites, preserving behavior
+   = note: `#[warn(prefer_positive_condition_names)]` on by default
+
+warning: LEG007 prefer-positive-condition-names: negative boolean name `has_no_owner`
+  --> $DIR/positive_names.rs:11:9
+   |
+LL |     let has_no_owner = false;
+   |         ^^^^^^^^^^^^
+   |
+   = help: use a positive boolean name and negate at use sites, preserving behavior
+
+warning: LEG007 prefer-positive-condition-names: negative boolean name `can_not_send`
+  --> $DIR/positive_names.rs:12:9
+   |
+LL |     let can_not_send: Flag = false;
+   |         ^^^^^^^^^^^^
+   |
+   = help: use a positive boolean name and negate at use sites, preserving behavior
+
+warning: LEG007 prefer-positive-condition-names: negative boolean name `does_not_exist`
+  --> $DIR/positive_names.rs:13:9
+   |
+LL |     let does_not_exist = &false;
+   |         ^^^^^^^^^^^^^^
+   |
+   = help: use a positive boolean name and negate at use sites, preserving behavior
+
+warning: LEG007 prefer-positive-condition-names: negative boolean name `should_not_retry`
+  --> $DIR/positive_names.rs:18:14
+   |
+LL | fn parameter(should_not_retry: bool) {
+   |              ^^^^^^^^^^^^^^^^
+   |
+   = help: use a positive boolean name and negate at use sites, preserving behavior
+
+warning: LEG007 prefer-positive-condition-names: negative boolean name `are_not_ready`
+  --> $DIR/positive_names.rs:23:10
+   |
+LL |     let (are_not_ready, number) = (false, 1);
+   |          ^^^^^^^^^^^^^
+   |
+   = help: use a positive boolean name and negate at use sites, preserving behavior
+
+warning: LEG007 prefer-positive-condition-names: negative boolean name `was_not_ready`
+  --> $DIR/positive_names.rs:24:14
+   |
+LL |     let Some(was_not_ready) = value else {
+   |              ^^^^^^^^^^^^^
+   |
+   = help: use a positive boolean name and negate at use sites, preserving behavior
+
+warning: LEG007 prefer-positive-condition-names: negative boolean name `were_not_ready`
+  --> $DIR/positive_names.rs:27:13
+   |
+LL |     let ref were_not_ready = false;
+   |             ^^^^^^^^^^^^^^
+   |
+   = help: use a positive boolean name and negate at use sites, preserving behavior
+
+warning: LEG007 prefer-positive-condition-names: negative boolean name `have_no_value`
+  --> $DIR/positive_names.rs:33:12
+   |
+LL |         Ok(have_no_value) | Err(have_no_value) => {
+   |            ^^^^^^^^^^^^^
+   |
+   = help: use a positive boolean name and negate at use sites, preserving behavior
+
+warning: LEG007 prefer-positive-condition-names: negative boolean name `had_no_value`
+  --> $DIR/positive_names.rs:40:18
+   |
+LL |     let check = |had_no_value: bool| had_no_value;
+   |                  ^^^^^^^^^^^^
+   |
+   = help: use a positive boolean name and negate at use sites, preserving behavior
+
+warning: LEG007 prefer-positive-condition-names: negative boolean name `could_not_finish`
+  --> $DIR/positive_names.rs:45:20
+   |
+LL |     while let Some(could_not_finish) = value {
+   |                    ^^^^^^^^^^^^^^^^
+   |
+   = help: use a positive boolean name and negate at use sites, preserving behavior
+
+warning: LEG007 prefer-positive-condition-names: negative boolean name `will_not_finish`
+  --> $DIR/positive_names.rs:49:17
+   |
+LL |     if let Some(will_not_finish) = value {
+   |                 ^^^^^^^^^^^^^^^
+   |
+   = help: use a positive boolean name and negate at use sites, preserving behavior
+
+warning: LEG007 prefer-positive-condition-names: negative boolean name `would_not_cache`
+  --> $DIR/positive_names.rs:59:9
+   |
+LL |     let r#would_not_cache = false;
+   |         ^^^^^^^^^^^^^^^^^
+   |
+   = help: use a positive boolean name and negate at use sites, preserving behavior
+
+warning: LEG007 prefer-positive-condition-names: negative boolean name `did_not_run`
+  --> $DIR/positive_names.rs:60:9
+   |
+LL |     let did_not_run = flag();
+   |         ^^^^^^^^^^^
+   |
+   = help: use a positive boolean name and negate at use sites, preserving behavior
+
+warning: 14 warnings emitted
+

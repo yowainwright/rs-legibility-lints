@@ -1,0 +1,15 @@
+error: LEG077 no-repeated-comprehension-filter: this filter repeats the preceding collection and predicate
+  --> $DIR/repeated_filter_levels.rs:4:26
+   |
+LL |     let second: Vec<_> = values.iter().filter(|value| **value > 0).collect();
+   |                          ^
+   |
+   = help: consider reusing the result while preserving separate ownership where needed
+note: the lint level is defined here
+  --> $DIR/repeated_filter_levels.rs:1:8
+   |
+LL | #[deny(no_repeated_comprehension_filter)]
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: aborting due to 1 previous error
+

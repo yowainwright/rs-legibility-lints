@@ -1,0 +1,23 @@
+warning: LEG001 max-expression-operators: expression exceeds 4 logical/comparison operators
+  --> $DIR/operator_calls.rs:4:5
+   |
+LL |     keep(keep(v[0] && v[1] && v[2] && v[3] && v[4] && v[5]))
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract named values while preserving evaluation order
+note: the lint level is defined here
+  --> $DIR/operator_calls.rs:1:9
+   |
+LL | #![warn(max_expression_operators)]
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: LEG001 max-expression-operators: expression exceeds 4 logical/comparison operators
+  --> $DIR/operator_calls.rs:8:5
+   |
+LL |     (v[0] && v[1] && v[2] && v[3] && v[4] && v[5]).then_some(1).is_some()
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: extract named values while preserving evaluation order
+
+warning: 2 warnings emitted
+

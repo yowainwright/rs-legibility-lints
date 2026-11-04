@@ -1,0 +1,35 @@
+warning: LEG042 no-getter-prefix: name this accessor `owner` instead of `get_owner`
+  --> $DIR/getters.rs:7:8
+   |
+LL |     fn get_owner(&self) -> &str {
+   |        ^^^^^^^^^
+   |
+   = help: rename the method and update its call sites
+   = note: `#[warn(no_getter_prefix)]` on by default
+
+warning: LEG042 no-getter-prefix: name this accessor `count` instead of `get_count`
+  --> $DIR/getters.rs:11:12
+   |
+LL |     pub fn get_count(&self) -> u8 {
+   |            ^^^^^^^^^
+   |
+   = help: rename the method and update its call sites
+
+warning: LEG042 no-getter-prefix: name this accessor `owner_mut` instead of `get_owner_mut`
+  --> $DIR/getters.rs:15:8
+   |
+LL |     fn get_owner_mut(&mut self) -> &mut String {
+   |        ^^^^^^^^^^^^^
+   |
+   = help: rename the method and update its call sites
+
+warning: LEG042 no-getter-prefix: name this accessor `count_return` instead of `get_count_return`
+  --> $DIR/getters.rs:19:8
+   |
+LL |     fn get_count_return(&self) -> u8 {
+   |        ^^^^^^^^^^^^^^^^
+   |
+   = help: rename the method and update its call sites
+
+warning: 4 warnings emitted
+

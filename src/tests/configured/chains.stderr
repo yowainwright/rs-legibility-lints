@@ -1,0 +1,11 @@
+warning: LEG011 max-array-chain-depth: iterator chain exceeds 1 method calls
+  --> $DIR/chains.rs:6:43
+   |
+LL |     values.iter().map(|value| *value + 1).collect()
+   |                                           ^^^^^^^
+   |
+   = help: split the chain into named iterators without collecting intermediate results
+   = note: `#[warn(max_array_chain_depth)]` on by default
+
+warning: 1 warning emitted
+

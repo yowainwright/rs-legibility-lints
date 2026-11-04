@@ -1,0 +1,75 @@
+warning: LEG002 hoist-if-operators: if condition exceeds 0 boolean operators
+  --> $DIR/conditions.rs:4:8
+   |
+LL |     if left && right {}
+   |        ^^^^^^^^^^^^^
+   |
+   = help: hoist the condition into a named boolean without changing evaluation order
+   = note: `#[warn(hoist_if_operators)]` on by default
+
+warning: LEG002 hoist-if-operators: if condition exceeds 0 boolean operators
+  --> $DIR/conditions.rs:5:8
+   |
+LL |     if left || right {}
+   |        ^^^^^^^^^^^^^
+   |
+   = help: hoist the condition into a named boolean without changing evaluation order
+
+warning: LEG002 hoist-if-operators: if condition exceeds 0 boolean operators
+  --> $DIR/conditions.rs:6:8
+   |
+LL |     if left && (right || left) {}
+   |        ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: hoist the condition into a named boolean without changing evaluation order
+
+warning: LEG002 hoist-if-operators: if condition exceeds 0 boolean operators
+  --> $DIR/conditions.rs:24:8
+   |
+LL |     if identity(left && right) {}
+   |        ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: hoist the condition into a named boolean without changing evaluation order
+
+warning: LEG002 hoist-if-operators: if condition exceeds 0 boolean operators
+  --> $DIR/conditions.rs:25:8
+   |
+LL |     if (left || right).then_some(left).is_some() {}
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: hoist the condition into a named boolean without changing evaluation order
+
+warning: LEG002 hoist-if-operators: if condition exceeds 0 boolean operators
+  --> $DIR/conditions.rs:26:8
+   |
+LL |     if [left && right][0] {}
+   |        ^^^^^^^^^^^^^^^^^^
+   |
+   = help: hoist the condition into a named boolean without changing evaluation order
+
+warning: LEG002 hoist-if-operators: if condition exceeds 0 boolean operators
+  --> $DIR/conditions.rs:27:8
+   |
+LL |     if (left && right) == left {}
+   |        ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: hoist the condition into a named boolean without changing evaluation order
+
+warning: LEG002 hoist-if-operators: if condition exceeds 0 boolean operators
+  --> $DIR/conditions.rs:37:12
+   |
+LL |         if right && other {}
+   |            ^^^^^^^^^^^^^^
+   |
+   = help: hoist the condition into a named boolean without changing evaluation order
+
+warning: LEG002 hoist-if-operators: if condition exceeds 0 boolean operators
+  --> $DIR/conditions.rs:38:15
+   |
+LL |     } else if left || right {
+   |               ^^^^^^^^^^^^^
+   |
+   = help: hoist the condition into a named boolean without changing evaluation order
+
+warning: 9 warnings emitted
+

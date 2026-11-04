@@ -1,0 +1,91 @@
+warning: LEG046 no-generic-package-names: `base` is a catch-all name
+  --> $DIR/generic_names.rs:1:5
+   |
+LL | mod base {}
+   |     ^^^^
+   |
+   = help: name the crate or module for what it provides
+   = note: `#[warn(no_generic_package_names)]` on by default
+
+warning: LEG046 no-generic-package-names: `common` is a catch-all name
+  --> $DIR/generic_names.rs:2:5
+   |
+LL | mod common {}
+   |     ^^^^^^
+   |
+   = help: name the crate or module for what it provides
+
+warning: LEG046 no-generic-package-names: `helper` is a catch-all name
+  --> $DIR/generic_names.rs:3:5
+   |
+LL | mod helper {}
+   |     ^^^^^^
+   |
+   = help: name the crate or module for what it provides
+
+warning: LEG046 no-generic-package-names: `helpers` is a catch-all name
+  --> $DIR/generic_names.rs:4:5
+   |
+LL | mod helpers {}
+   |     ^^^^^^^
+   |
+   = help: name the crate or module for what it provides
+
+warning: LEG046 no-generic-package-names: `lib` is a catch-all name
+  --> $DIR/generic_names.rs:5:5
+   |
+LL | mod lib {}
+   |     ^^^
+   |
+   = help: name the crate or module for what it provides
+
+warning: LEG046 no-generic-package-names: `libs` is a catch-all name
+  --> $DIR/generic_names.rs:6:5
+   |
+LL | mod libs {}
+   |     ^^^^
+   |
+   = help: name the crate or module for what it provides
+
+warning: LEG046 no-generic-package-names: `misc` is a catch-all name
+  --> $DIR/generic_names.rs:7:5
+   |
+LL | mod misc {}
+   |     ^^^^
+   |
+   = help: name the crate or module for what it provides
+
+warning: LEG046 no-generic-package-names: `shared` is a catch-all name
+  --> $DIR/generic_names.rs:8:5
+   |
+LL | mod shared {}
+   |     ^^^^^^
+   |
+   = help: name the crate or module for what it provides
+
+warning: LEG046 no-generic-package-names: `util` is a catch-all name
+  --> $DIR/generic_names.rs:9:5
+   |
+LL | mod util {}
+   |     ^^^^
+   |
+   = help: name the crate or module for what it provides
+
+warning: LEG046 no-generic-package-names: `utils` is a catch-all name
+  --> $DIR/generic_names.rs:10:5
+   |
+LL | mod utils {}
+   |     ^^^^^
+   |
+   = help: name the crate or module for what it provides
+
+warning: LEG046 no-generic-package-names: `utils` is a catch-all name
+  --> $DIR/generic_names.rs:16:9
+   |
+LL |     mod utils {}
+   |         ^^^^^
+   |
+   = help: name the crate or module for what it provides
+
+warning: 11 warnings emitted
+

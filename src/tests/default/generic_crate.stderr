@@ -1,0 +1,11 @@
+warning: LEG046 no-generic-package-names: `utils` is a catch-all name
+  --> $DIR/generic_crate.rs:1:1
+   |
+LL | #![crate_name = "utils"]
+   | ^
+   |
+   = help: name the crate or module for what it provides
+   = note: `#[warn(no_generic_package_names)]` on by default
+
+warning: 1 warning emitted
+
