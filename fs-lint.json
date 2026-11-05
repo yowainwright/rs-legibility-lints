@@ -19,7 +19,9 @@
       "clippy.toml",
       "dylint.toml",
       "rustfmt.toml",
-      "src/**/*.{rs,stderr,fixed}"
+      "src/**/*.{rs,stderr,fixed}",
+      "tests/lints.rs",
+      "tests/fixtures/**/*.{rs,stderr,fixed}"
     ]
   }
 }

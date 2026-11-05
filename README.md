@@ -12,6 +12,8 @@ make setup
 
 Tools stay in `.tools/`; builds and cached drivers stay in `target/`.
 
+---
+
 ## Usage
 
 Run checks from this repository:
@@ -71,6 +73,8 @@ CARGO_BUILD_WARNINGS=warn make lint-legibility
 The Cargo override preserves explicit `deny` errors. Severity uses Rust lint attributes; `dylint.toml` sets rule thresholds.
 These commands check this repository; another project needs its own lint configuration.
 
+---
+
 ## Rule coverage
 
 The [shared catalog](https://github.com/yowainwright/legibility/blob/main/docs/rules.md) has 62 entries:
@@ -79,6 +83,8 @@ The [shared catalog](https://github.com/yowainwright/legibility/blob/main/docs/r
 
 The 31 custom checks include eight opt-in checks.
 Clippy mappings follow native Rust behavior; they do not claim parity with other language plugins.
+
+---
 
 ## Rules
 
@@ -986,6 +992,8 @@ Rust has no Shell-style top-level executable statements.
 
 Shell positional-parameter expansion rules do not apply to typed Rust parameters.
 
+---
+
 ## Development
 
 | Command | Purpose |
@@ -994,7 +1002,7 @@ Shell positional-parameter expansion rules do not apply to typed Rust parameters
 | `make format` / `make format-fix` | Check / apply Rust formatting. |
 | `make typecheck` | Compile-check all targets. |
 | `make test` | Run compiler fixtures and plugin smoke checks. |
-| `make test-unit` / `make test-smoke` | Run library tests / load the plugin and list its rules. |
+| `make test-unit` / `make test-smoke` | Run unit tests / load the plugin and list its rules. |
 | `make test-coverage` / `make test-coverage-html` | Write LCOV / HTML coverage to `target/coverage/`. |
 | `make build` | Build the release plugin. |
 | `make validate-full` | Validation, release build, and coverage. |
@@ -1002,10 +1010,12 @@ Shell positional-parameter expansion rules do not apply to typed Rust parameters
 `make lint-session` runs `make lint`. Coverage includes the plugin loaded by compiler fixtures.
 Instrumented builds stay in `target/coverage-build/`; reports stay in `target/coverage/`.
 
-The compiler is pinned in [rust-toolchain.toml](rust-toolchain.toml); Dylint uses version 6.2.0.
+The compiler is pinned in [rust-toolchain.toml](rust-toolchain.toml); Dylint uses version 6.3.2.
 Rustfmt uses Rust 2024, 100 columns, four spaces, and LF endings.
 Module items follow Clippy's native groups without alphabetical sorting.
 
-Rule code and compiler fixtures stay under [src/](src/); `.stderr` files record expected diagnostics.
+Lint implementations and unit tests live in [src/](src/).
+[tests/lints.rs](tests/lints.rs) runs compiler fixtures from [tests/fixtures/](tests/fixtures/);
+`.stderr` files record expected diagnostics.
 Add one reviewed rule at a time, with accepted and rejected cases.
 Handwritten rule logic must stay safe; unsafe code is denied except for required plugin exports.

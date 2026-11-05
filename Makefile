@@ -15,7 +15,7 @@ setup build typecheck format format-fix lint-rust lint-legibility \
 setup:
 	rustup show active-toolchain
 	CARGO_TARGET_DIR="$(CURDIR)/target/tool-install" $(CARGO) install --locked \
-		--version 6.2.0 --root .tools cargo-dylint dylint-link
+		--version 6.3.2 --root .tools cargo-dylint dylint-link
 	CARGO_TARGET_DIR="$(CURDIR)/target/tool-install" $(CARGO) install --locked \
 		--version 0.9.1 --root .tools cargo-llvm-cov
 
@@ -43,7 +43,7 @@ lint-legibility:
 	$(CARGO) dylint --all -- --all-targets
 
 lint-paths:
-	fs-lint
+	env fs-lint
 	bash -o pipefail -c 'git ls-files --cached --others --exclude-standard -z | fs-lint check --stdin0'
 
 lint-session: lint
