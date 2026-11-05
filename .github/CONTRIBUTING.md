@@ -13,7 +13,7 @@ make test-coverage
 
 [`rust-toolchain.toml`](../rust-toolchain.toml) pins the nightly compiler and its components. Keep that pin aligned with Dylint; do not replace it with the latest stable compiler.
 
-[`make validate`](../Makefile) checks formatting, compilation, Clippy, Dylint, file paths, and tests. Implemented rules have compiler fixtures under `src/tests/`; loading the plugin alone verifies setup, not rule behavior.
+[`make validate`](../Makefile) checks formatting, compilation, Clippy, Dylint, file paths, and tests. The integration runner in `tests/lints.rs` checks compiler fixtures under `tests/fixtures/`; loading the plugin alone verifies setup, not rule behavior. Unit tests stay beside their implementations in `src/`.
 
 ## Code Style
 
