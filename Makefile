@@ -43,7 +43,7 @@ lint-legibility:
 	$(CARGO) dylint --all -- --all-targets
 
 lint-paths:
-	fs-lint
+	env fs-lint
 	bash -o pipefail -c 'git ls-files --cached --others --exclude-standard -z | fs-lint check --stdin0'
 
 lint-session: lint
