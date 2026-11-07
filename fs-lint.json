@@ -19,6 +19,9 @@
       "clippy.toml",
       "dylint.toml",
       "rustfmt.toml",
+      "scripts/hooks.sh",
+      "scripts/package-release.sh",
+      "tests/scripts/hooks.sh",
       "src/**/*.{rs,stderr,fixed}",
       "tests/lints.rs",
       "tests/fixtures/**/*.{rs,stderr,fixed}"

@@ -7,7 +7,8 @@ export DYLINT_DRIVER_PATH := $(CURDIR)/target/dylint-drivers
 
 .PHONY: setup prepare build typecheck format format-fix lint lint-rust \
  lint-legibility lint-paths lint-session test test-unit test-smoke \
- test-coverage test-coverage-html validate validate-full check
+ test-coverage test-coverage-html test-hooks install-hooks package-release \
+ release-check validate validate-full check
 
 setup build typecheck format format-fix lint-rust lint-legibility \
  test test-unit test-smoke test-coverage test-coverage-html: | prepare
@@ -18,6 +19,10 @@ setup:
 		--version 6.3.2 --root .tools cargo-dylint dylint-link
 	CARGO_TARGET_DIR="$(CURDIR)/target/tool-install" $(CARGO) install --locked \
 		--version 0.9.1 --root .tools cargo-llvm-cov
+	$(MAKE) install-hooks
+
+install-hooks:
+	sh scripts/hooks.sh
 
 prepare:
 	mkdir -p "$(TMPDIR)" "$(DYLINT_DRIVER_PATH)"
@@ -48,8 +53,11 @@ lint-paths:
 
 lint-session: lint
 
-test: test-smoke
+test: test-smoke test-hooks
 	$(CARGO) test --locked
+
+test-hooks:
+	sh tests/scripts/hooks.sh
 
 test-unit:
 	$(CARGO) test --locked --lib
@@ -73,5 +81,10 @@ test-coverage-html: test-coverage
 validate: format typecheck lint test
 
 validate-full: validate build test-coverage
+
+package-release: build
+	bash scripts/package-release.sh
+
+release-check: validate-full package-release
 
 check: validate

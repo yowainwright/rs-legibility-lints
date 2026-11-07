@@ -1003,9 +1003,12 @@ Shell positional-parameter expansion rules do not apply to typed Rust parameters
 | `make typecheck` | Compile-check all targets. |
 | `make test` | Run compiler fixtures and plugin smoke checks. |
 | `make test-unit` / `make test-smoke` | Run unit tests / load the plugin and list its rules. |
+| `make test-hooks` | Check hook installation, preservation, and validation failures. |
 | `make test-coverage` / `make test-coverage-html` | Write LCOV / HTML coverage to `target/coverage/`. |
 | `make build` | Build the release plugin. |
 | `make validate-full` | Validation, release build, and coverage. |
+| `make install-hooks` | Install the pre-commit hook; also runs during `make setup`. |
+| `make release-check` | Full validation, coverage, and a packaged-library smoke test. |
 
 `make lint-session` runs `make lint`. Coverage includes the plugin loaded by compiler fixtures.
 Instrumented builds stay in `target/coverage-build/`; reports stay in `target/coverage/`.
@@ -1019,3 +1022,36 @@ Lint implementations and unit tests live in [src/](src/).
 `.stderr` files record expected diagnostics.
 Add one reviewed rule at a time, with accepted and rejected cases.
 Handwritten rule logic must stay safe; unsafe code is denied except for required plugin exports.
+
+The pre-commit hook runs `make validate`. Installation preserves custom hooks and skips CI.
+Cargo must be on PATH when committing.
+
+---
+
+## Releases
+
+Version 0.0.1 targets Linux x86-64 and macOS ARM64 through GitHub release archives.
+Each archive contains the Dylint library, license, README, and pinned toolchain file.
+This crate is not published to crates.io.
+
+Before tagging:
+
+```sh
+make release-check
+```
+
+Archives appear in `target/release-artifacts/`. The check extracts the archive and loads its library with Dylint.
+CI runs packaging on both supported platforms. A `v0.0.1` tag must match `Cargo.toml` and point to a commit on `main`.
+The release workflow validates both platforms, audits dependencies, and publishes archives with checksums and provenance.
+Artifact attestations require a public repository or GitHub Enterprise Cloud for private repositories
+([GitHub requirements](https://github.com/actions/attest#readme)). Scorecard's SARIF upload requires code scanning enabled.
+
+To use a downloaded archive, extract it and install its pinned toolchain plus Dylint 6.3.2:
+
+```sh
+rustup toolchain install nightly-2026-08-20 --component rustc-dev --component llvm-tools-preview
+cargo install cargo-dylint --locked --version 6.3.2
+cargo +nightly-2026-08-20 dylint --no-metadata --lib-path /absolute/path/to/librs_legibility_lints@TOOLCHAIN.EXT -- --all-targets
+```
+
+Replace the library path with the extracted filename for your platform. Clippy checks remain separately configured.
