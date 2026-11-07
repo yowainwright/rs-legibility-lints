@@ -4,6 +4,9 @@ set -eu
 main() {
     case "${CI:-}" in true | 1) return 0 ;; esac
     hooks_directory="$(git rev-parse --git-path hooks 2>/dev/null)" || return 0
+    if [ "$hooks_directory" = /dev/null ]; then
+        return 0
+    fi
     pre_commit_path="$hooks_directory/pre-commit"
     if [ -L "$pre_commit_path" ]; then
         return 0

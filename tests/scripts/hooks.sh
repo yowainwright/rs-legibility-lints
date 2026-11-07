@@ -14,6 +14,7 @@ main() {
     chmod +x "$test_directory/bin/git" "$test_directory/bin/make"
     export PATH="$test_directory/bin:$PATH"
     test_ci_skip
+    test_disabled_hooks
     test_validation
     test_managed_refresh
     test_custom_preservation
@@ -45,6 +46,11 @@ test_ci_skip() {
     CI=true sh scripts/hooks.sh
     test ! -e "$TEST_HOOKS/pre-commit"
     CI=1 sh scripts/hooks.sh
+    test ! -e "$TEST_HOOKS/pre-commit"
+}
+
+test_disabled_hooks() {
+    CI=false TEST_HOOKS=/dev/null sh scripts/hooks.sh
     test ! -e "$TEST_HOOKS/pre-commit"
 }
 
