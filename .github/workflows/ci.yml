@@ -57,21 +57,10 @@ jobs:
       - name: Validate
         run: make validate
 
-      - name: Build release plugin
-        if: inputs.release_artifacts
-        run: make build
-
-      - name: Package release plugin
-        if: inputs.release_artifacts
-        run: |
-          set -euo pipefail
-          host="$(rustc -vV | sed -n 's/^host: //p')"
-          libraries=(target/release/librs_legibility_lints@*)
-          test "${#libraries[@]}" -eq 1
-          test -f "${libraries[0]}"
-          mkdir -p target/release-artifacts
-          archive="${GITHUB_WORKSPACE}/target/release-artifacts/rs-legibility-lints-${GITHUB_REF_NAME}-${host}.tar.gz"
-          tar -czf "${archive}" -C target/release "$(basename "${libraries[0]}")" -C "${GITHUB_WORKSPACE}" LICENSE rust-toolchain.toml
+      - name: Package and smoke-test release plugin
+        env:
+          RELEASE_TAG: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || '' }}
+        run: make package-release
 
       - name: Upload release plugin
         if: inputs.release_artifacts
