@@ -4,7 +4,11 @@ version = "0.0.1"
 edition = "2024"
 description = "Rust legibility rules for Dylint"
 license = "MIT"
-publish = false
+repository = "https://github.com/yowainwright/rs-legibility-lints"
+readme = "README.md"
+keywords = ["dylint", "lint", "legibility"]
+categories = ["development-tools::linting"]
+publish = ["crates-io"]
 
 [lib]
 crate-type = ["cdylib"]

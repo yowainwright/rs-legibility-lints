@@ -1008,7 +1008,8 @@ Shell positional-parameter expansion rules do not apply to typed Rust parameters
 | `make build` | Build the release plugin. |
 | `make validate-full` | Validation, release build, and coverage. |
 | `make install-hooks` | Install the pre-commit hook; also runs during `make setup`. |
-| `make release-check` | Full validation, coverage, and a packaged-library smoke test. |
+| `make package-crate` | Package and compile-check the crates.io source archive. |
+| `make release-check` | Full validation, coverage, and binary/source package checks. |
 
 `make lint-session` runs `make lint`. Coverage includes the plugin loaded by compiler fixtures.
 Instrumented builds stay in `target/coverage-build/`; reports stay in `target/coverage/`.
@@ -1032,7 +1033,7 @@ Cargo must be on PATH when committing.
 
 Version 0.0.1 targets Linux x86-64 and macOS ARM64 through GitHub release archives.
 Each archive contains the Dylint library, license, README, and pinned toolchain file.
-This crate is not published to crates.io.
+Crates.io publication is separate from the GitHub release workflow.
 
 Before tagging:
 
@@ -1055,3 +1056,15 @@ cargo +nightly-2026-08-20 dylint --no-metadata --lib-path /absolute/path/to/libr
 ```
 
 Replace the library path with the extracted filename for your platform. Clippy checks remain separately configured.
+
+To publish the source package to crates.io, commit the release changes and run:
+
+```sh
+make release-check
+cargo login
+export PATH="$PWD/.tools/bin:$PATH"
+cargo publish --locked
+```
+
+The source package requires the pinned nightly toolchain and `dylint-link` from `make setup`.
+This is a Dylint library; `cargo install rs-legibility-lints` does not install it.
