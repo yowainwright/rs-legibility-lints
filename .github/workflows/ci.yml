@@ -47,8 +47,10 @@ jobs:
           asset="fs-lint-${FS_LINT_PLATFORM}"
           release_url="https://github.com/yowainwright/fs-lint/releases/download/v0.3.0"
           mkdir -p target/ci-tools .tools/bin
-          curl --fail --silent --show-error --location "${release_url}/${asset}" --output "target/ci-tools/${asset}"
-          curl --fail --silent --show-error --location "${release_url}/${asset}.sha256" --output "target/ci-tools/${asset}.sha256"
+          curl --fail --silent --show-error --location --retry 5 --retry-max-time 120 \
+            "${release_url}/${asset}" --output "target/ci-tools/${asset}"
+          curl --fail --silent --show-error --location --retry 5 --retry-max-time 120 \
+            "${release_url}/${asset}.sha256" --output "target/ci-tools/${asset}.sha256"
           cd target/ci-tools
           shasum -a 256 -c "${asset}.sha256"
           chmod +x "${asset}"
@@ -57,10 +59,10 @@ jobs:
       - name: Validate
         run: make validate
 
-      - name: Package and smoke-test release plugin
+      - name: Verify binary and source packages
         env:
           RELEASE_TAG: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || '' }}
-        run: make package-release
+        run: make package-release package-crate
 
       - name: Upload release plugin
         if: inputs.release_artifacts

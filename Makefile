@@ -7,11 +7,11 @@ export DYLINT_DRIVER_PATH := $(CURDIR)/target/dylint-drivers
 
 .PHONY: setup prepare build typecheck format format-fix lint lint-rust \
  lint-legibility lint-paths lint-session test test-unit test-smoke \
- test-coverage test-coverage-html test-hooks install-hooks package-release \
+ test-coverage test-coverage-html test-hooks install-hooks package-release package-crate \
  release-check validate validate-full check
 
 setup build typecheck format format-fix lint-rust lint-legibility \
- test test-unit test-smoke test-coverage test-coverage-html: | prepare
+ test test-unit test-smoke test-coverage test-coverage-html package-crate: | prepare
 
 setup:
 	rustup show active-toolchain
@@ -85,6 +85,9 @@ validate-full: validate build test-coverage
 package-release: build
 	bash scripts/package-release.sh
 
-release-check: validate-full package-release
+package-crate:
+	$(CARGO) package --locked
+
+release-check: validate-full package-release package-crate
 
 check: validate
