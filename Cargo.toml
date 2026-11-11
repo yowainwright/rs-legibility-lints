@@ -7,7 +7,7 @@ license = "MIT"
 repository = "https://github.com/yowainwright/rs-legibility-lints"
 readme = "README.md"
 keywords = ["dylint", "lint", "legibility"]
-categories = ["development-tools::linting"]
+categories = ["development-tools"]
 publish = ["crates-io"]
 
 [lib]
